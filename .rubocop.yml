@@ -1,0 +1,56 @@
+Rails:
+  Enabled: true
+Documentation:
+  Enabled: false
+Metrics/LineLength:
+  Enabled: false
+Metrics/MethodLength:
+  Enabled: false
+Metrics/ClassLength:
+  Enabled: false
+Metrics/AbcSize:
+  Enabled: false
+Metrics/PerceivedComplexity:
+  Enabled: false
+Metrics/CyclomaticComplexity:
+  Enabled: false
+Style/IfUnlessModifier:
+  Enabled: false
+Style/GuardClause:
+  Enabled: false
+Style/ClassAndModuleChildren:
+  Enabled: false
+Style/TrailingBlankLines:
+  Enabled: false
+Style/TrailingWhitespace:
+  Enabled: false
+Style/StringLiterals:
+  Enabled: false
+Style/HashSyntax:
+  Enabled: false
+Style/FileName:
+  Enabled: false
+Style/NumericLiterals:
+  MinDigits: none
+Style/CommentAnnotation:
+  Enabled: false
+Style/WordArray:
+  Enabled: false
+Style/FormatString:
+  Enabled: false
+Style/SpaceInsideHashLiteralBraces:
+  Enabled: false
+Style/BracesAroundHashParameters:
+  Enabled: false
+Style/InfiniteLoop:
+  Enabled: false
+Style/SelfAssignment:
+  Enabled: false
+Style/ConditionalAssignment:
+  Enabled: false
+Style/SymbolProc:
+  Enabled: false
+Lint/UselessAssignment:
+  Enabled: false
+Lint/LiteralInCondition:
+  Enabled: false
