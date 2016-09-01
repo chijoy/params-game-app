@@ -1,0 +1,2 @@
+module ParamsExamplesHelper
+end

@@ -1,0 +1,11 @@
+<h1>Here's your form</h1>
+
+<%= form_tag '/send_form_for_number_game', method: :post do %>
+  <div>
+  <%= label_tag :number, 'Enter Guess' %>
+  <%= text_field_tag :number, 0, placeholder: 'place guess here' %>
+  </div>
+  <div>
+    <%= submit_tag 'Send Message' %>
+  </div>
+<% end %>
