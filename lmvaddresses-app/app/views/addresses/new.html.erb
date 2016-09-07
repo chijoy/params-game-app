@@ -1,0 +1,27 @@
+<h1>New address</h1>
+
+<%= form_tag "/addressess", method: :post do %>
+  <div>
+    <%= label_tag :address %>
+    <%= text_field_tag :address, @address.address %>
+  </div>
+  <div>
+    <%= label_tag :type %>
+    <%= text_field_tag :type, @address.type %>
+  </div>
+  <div>
+    <%= label_tag :location %>
+    <%= text_field_tag :location, @address.location %>
+  </div>
+  <div>
+    <%= label_tag :landmark %>
+    <%= text_field_tag :landmark, @address.landmark %>
+  </div>
+  <div>
+    <%= label_tag :nearby_addresses %>
+    <%= text_field_tag :nearby_addresses, @address.nearby_address %>
+  </div>
+  <div>
+    <%= submit_tag "Create address" %>
+  </div>
+<% end %>

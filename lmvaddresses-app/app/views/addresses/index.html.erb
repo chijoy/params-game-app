@@ -1,0 +1,10 @@
+<h1>All Landmark Village Addresses:</h1>
+
+<% @addresses.each do |address| %>
+  <h2><a href="/addresses/<%= address.id %>"><%= address.address %></a></h2>
+  <h2><%= link_to address.address, "/addresses/#{address.id}" %> </h2>
+  <h3>Type: <%= address.type %></h3>
+  <h4>Location: <%= address.location %></h4>
+  <h4>Landmark: <%= address.landmark %></h4>
+  <h4>Nearby addresses: <%= address.nearby_addresses %></h4>
+<% end %>
