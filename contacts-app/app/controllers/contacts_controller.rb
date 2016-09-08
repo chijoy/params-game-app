@@ -40,4 +40,8 @@ class ContactsController < ApplicationController
 
     redirect_to '/contacts'
   end
+
+  def full_name
+    first_name + " " + last_name
+  end
 end

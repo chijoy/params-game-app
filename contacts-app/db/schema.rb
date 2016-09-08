@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(version: 20160828205440) do
   create_table "contacts", force: :cascade do |t|
     t.string   "first_name"
     t.string   "last_name"
+    t.string   "full_name"
     t.string   "email"
     t.string   "phone_number"
     t.datetime "created_at",   null: false
