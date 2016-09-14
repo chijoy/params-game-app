@@ -4,4 +4,7 @@
 <p>Email: <%= @contact.email %></p>
 <p>Phone Number: <%= @contact.phone_number %></p>
 <br>
-<h3> Updated On: <%= @contact.friendly_updated_at %></h3>
+<p> Updated On: <%= @contact.friendly_updated_at %></p>
+
+<p><%= link_to 'Edit', "/contacts/#{@contact.id}/edit" %></p>
+<p><%= link_to 'Delete', "/contacts/#{@contact.id}", method: :delete %></p>

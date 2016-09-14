@@ -1,0 +1,7 @@
+<h1>Recipe</h1>
+
+<h2><%= link_to recipe.title, '/recipes/#{recipe.id}', class: "blue" %></h2>
+<h2>By: <%= recipe.chef %></h2>
+<h2>Time: <%= recipe.prep_time %></h2>
+<h2>Ingredients: <%= recipe.ingredients %></h2>
+<h2>Directions: <%= recipe.directions %></h2>
