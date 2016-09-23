@@ -1,12 +1,10 @@
 <h1>All Contacts</h1>
 
-<p><% @contacts.each do |contact| %></p>
+<% @contacts.each do |contact| %>
 
-  <p>First Name: <%= contact.first_name %></p>
-  <p>Middle Name: <%= contact.middle_name %></p>
-  <p>Last Name: <%= contact.last_name %></p>
-  <p>Email: <%= contact.email %></p>
-  <p>Phone Number: <%= contact.phone_number %></p>
-  <p>-----------------------------------------</p>
+  <h4>Full Name: <a href="/contacts/<%= contact.id %>"><%= contact.full_name %></a></h4>
+  <h4>Email: <%= contact.email %></h4>
+  <h4>Phone Number: <%= contact.phone_number %></h4>
+  <p>-----------------------------------------------------------</p>
 
 <% end %>

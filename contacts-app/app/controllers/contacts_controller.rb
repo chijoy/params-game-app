@@ -18,6 +18,7 @@ class ContactsController < ApplicationController
 
   def show
     @contact = Contact.find(params[:id])
+    @groups = @contact.groups
   end
 
   def edit

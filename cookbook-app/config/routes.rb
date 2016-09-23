@@ -10,12 +10,12 @@ Rails.application.routes.draw do
   get '/recipes/:id/edit' => 'recipes#edit'
   patch '/recipes/:id' => 'recipes#update'
 
-  # delete '/recipes/:id' => 'recipes#destroy'
+  delete '/recipes/:id' => 'recipes#destroy'
 
   get '/signup' => 'users#new'
   post '/user' => 'users#create'
 
   get '/login' => 'sessions#new'
-  post '/login' => 'sessions@create'
+  post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
 end
