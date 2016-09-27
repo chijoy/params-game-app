@@ -1,0 +1,22 @@
+<h1>Weather</h1>
+
+<%= form_tag '/' method: :get do %>
+  <%= text_field_tag :city, nil, placeholder: "City" %>
+  <%= text_field_tag :city, nil, placeholder: "State" %>
+  <%= submit_tag 'Submit' %>
+<% end %>
+
+<h2>Here is today's temperature for <%= @channel["location"]["city"] %>:</h2>
+<h3><%= @channel["item"]["condition"]["temp"] %></h3>
+
+<h2> And here's your 5-day forecast:</h2>
+
+
+<%= @channel["item"]["forecast"][0..4].each do |forecast| %>
+  <h4>Date: <%= forecast["date"] %></h4>
+  <h4>Day: <%= forecast["day"] %></h4>
+  <h4>High: <%= forecast["high"] %></h4>
+  <h4>Low: <%= forecast["low"] %></h4>
+  <h4>Text: <%= forecast["text"] %></h4>
+  <h5>----------------------------------------</h5>
+<% end %>
