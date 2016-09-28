@@ -1,0 +1,4 @@
+<h2> <%= employee["full_name"] %> </h2>
+<%= employee["addresses"].each do |address| %>
+  <h4><%= address["city"] %>, <%= address["state"] %></h4>
+<% end %>
