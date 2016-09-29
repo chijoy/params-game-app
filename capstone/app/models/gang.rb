@@ -1,0 +1,2 @@
+class Gang < ApplicationRecord
+end

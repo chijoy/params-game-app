@@ -1,0 +1,10 @@
+
+<h2><%= @image.name %></h2>
+<a href="/images/<%= @image.id %>"><img src="<%= @image.image %>" alt="<%= @image.name %>"></a>
+<h4>Status: <%= @image.status %></h4>
+<h4>Notes: <%= @image.notes %></h4>
+<br>
+
+<h5><%= link_to 'Home', '/images' %></h5>
+<h5><%= link_to 'Edit', "/images/#{@image.id}/edit" %></h5>
+<h5><%= link_to 'Delete', "/images/#{@image.id}", method: :delete %></h5>

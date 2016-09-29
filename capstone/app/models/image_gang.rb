@@ -1,0 +1,2 @@
+class ImageGang < ApplicationRecord
+end
