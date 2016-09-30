@@ -11,7 +11,7 @@ class Api::V1::EmployeesController < ApplicationController
                                 ssn: params[:ssn]
                                 )
 
-    redirect_to "/employees/#{@employee.id}.json"
+    redirect_to "/api/vi/employees/#{@employee.id}.json"
   end
   
   def show
@@ -26,7 +26,7 @@ class Api::V1::EmployeesController < ApplicationController
                       email: params[:email],
                       ssn: params[:ssn])
 
-    redirect_to "/employees/#{@employee.id}.json"
+    redirect_to "/api/vi/employees/#{@employee.id}.json"
   end
 
   def destroy

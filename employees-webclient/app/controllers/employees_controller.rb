@@ -1,13 +1,14 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Unirest.get("localhost:3000/api/vi/empoyees.json").body
+    @employees = Employee.all
+    end
   end
 
   def new
   end
 
   def create
-    @employee = Unirest.post("localhost:3000/api/v1/employees",
+    @employee = Unirest.post("#{ENV["api_domain_name"]}/api/v1/employees",
                               headers: {"Accept" => "application/json"},
                               paramters: {
                                 first_name: params[:first_name],
@@ -20,6 +21,33 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    @employee = Unirest.get("localhost:3000/api/vi/empoyees/#{params[:id]}.json").body
+    @employee = Employee.find(params[:id])    
   end
+
+  def edit
+    @employee = Unirest.get("#{ENV["api_domain_name"]}/api/vi/empoyees/#{params[:id]}.json").body
+  end
+
+  def update
+    @employee = Unirest.patch("#{ENV["api_domain_name"]}/api/v1/employees/#{params[:id]}",
+                              headers: {"Accept" => "application/json"},
+                              paramters: {
+                                first_name: params[:first_name],
+                                last_name: params[:last_name],
+                                email: params[:email],
+                                ssn: params[:ssn]
+                                }).body
+
+    redirect_to "/employees/#{@employee["id"]}"
+  end
+
+  def destroy
+    response = Unirest.delete("#{ENV["api_domain_name"]}/api/v1/employees/#{params[:id]}",
+                              headers: {"Accept" => "application/json"}).body
+
+    flash[:success] = response["message"]
+    redirect_to "/employees"
+  end
+
+
 end
