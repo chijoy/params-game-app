@@ -4,8 +4,9 @@
 <% end %> 
 
 <% @images.each do |image| %>
-  <h4> Graffiti Submission #: <%= link_to image.id, "/images/#{image.id}" %></h4>
+  <h4> Graffiti Submission ID#: <%= link_to image.id, "/images/#{image.id}" %></h4>
   <h4>Description: <%= image.image %></h4>
   <h4>Location: <%= image.location %></h4>
+  <h4>-----------------------------------</h4>
 <% end %>
 

@@ -17,8 +17,16 @@ class ImagesController < ApplicationController
                           name: params[:name],
                           status: params[:status],
                           notes: params[:notes],
-                          location: params[:location]
+                          location: params[:location],
+                          user_id: current_user.id
                           )
+    puts  "*******"
+    puts @image.image
+    puts @image.notes
+    puts @image.status
+    puts @image.location
+    puts @image.name
+    puts "******"
 
     redirect_to '/'
   end

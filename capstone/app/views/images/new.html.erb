@@ -10,6 +10,18 @@
     <%= text_field_tag :location %>
   </div>
   <div>
+    <%= label_tag  :name %>
+    <%= text_field_tag :name, @image.name %>
+  </div>
+  <div>
+    <%= label_tag :notes %>
+    <%= text_field_tag :notes, @image.notes %>
+  </div>
+  <div>
+    <%= label_tag :status %>
+    <%= text_field_tag :status, @image.status %>
+  </div>
+  <div>
     <%= submit_tag "Submit Your Graffiti" %>
   </div>
 <% end %>

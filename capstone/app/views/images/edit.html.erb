@@ -1,15 +1,29 @@
+<h3><%= link_to 'Home', '/images' %> </h3>
+
 <h1>Manage the Graffiti Image Submission</h1>
 
 <%= form_tag "/images/#{@image.id}", method: :patch do %>
   
   <div>
     <%= label_tag :image, "Describe the graffiti: " %>
-    <%= text_field_tag :image %>
+    <%= text_field_tag :image, @image.image %>
   </div>
 
   <div>
     <%= label_tag :location, "Where's the graffiti located? " %>
-    <%= text_field_tag :location %>
+    <%= text_field_tag :location, @image.location %>
+  </div>
+  <div>
+    <%= label_tag  :name %>
+    <%= text_field_tag :name, @image.name %>
+  </div>
+  <div>
+    <%= label_tag :notes %>
+    <%= text_field_tag :notes, @image.notes %>
+  </div>
+  <div>
+    <%= label_tag :status %>
+    <%= text_field_tag :status, @image.status %>
   </div>
   <div>
     <%= submit_tag "Update the Info" %>
