@@ -1,6 +1,6 @@
 class ImagesController < ApplicationController
 
-  
+
   before_action :authenticate_admin!, except: [:index, :show]
 
   def index
@@ -16,7 +16,8 @@ class ImagesController < ApplicationController
                           image: params[:image],
                           name: params[:name],
                           status: params[:status],
-                          notes: params[:notes]
+                          notes: params[:notes],
+                          location: params[:location]
                           )
 
     redirect_to '/'
@@ -36,7 +37,8 @@ class ImagesController < ApplicationController
                   image: params[:image],
                   name: params[:name],
                   status: params[:status],
-                  notes: params[:notes]
+                  notes: params[:notes],
+                  location: params[:location]
                   )
 
     redirect_to "/images/#{@image.id}"
