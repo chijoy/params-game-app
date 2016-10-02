@@ -1,6 +1,6 @@
 <h1>Avatars</h1>
 
-<%= @avatars.each do |avatar| %>
-  <h2><a href="/avatars/<%= avatar.id %> <%= avatar.name %><%= avatar.image %>  </h2>
+<% @avatars.each do |avatar| %>
+  <h2><a href="/avatars/<%= avatar.id %>"> <%= avatar.name %><%= avatar.image %> </a> </h2>
   <%= render partial: "avatar", locals: { avatar: avatar } %>
 <% end %>

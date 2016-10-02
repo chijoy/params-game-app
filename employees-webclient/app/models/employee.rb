@@ -17,7 +17,7 @@ class Employee
   def self.all 
     collection = []
     Unirest.get("#{ENV["api_domain_name"]}/api/vi/empoyees.json").body.each do |employee_hash|
-      @employees << Employee.new(employee_hash)
+      collection << Employee.new(employee_hash)
     end
     collection
   end

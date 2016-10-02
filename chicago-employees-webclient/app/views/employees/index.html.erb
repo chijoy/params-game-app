@@ -3,5 +3,5 @@
 <%= @employees.each do |employee| %>
   <h2><%= employee["name"] %></h2>
   <h4><%= employee["job_titles"] %></h4>
-  <h4>Salary:<%= employee["employee_annual_salary"] %></h4>
+  <h4>Salary:<%= number_to_currency(employee["employee_annual_salary"]) %></h4>
 <% end %>

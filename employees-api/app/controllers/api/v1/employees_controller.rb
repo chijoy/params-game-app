@@ -11,7 +11,7 @@ class Api::V1::EmployeesController < ApplicationController
                                 ssn: params[:ssn]
                                 )
 
-    redirect_to "/api/vi/employees/#{@employee.id}.json"
+    redirect_to "/api/v1/employees/#{@employee.id}.json"
   end
   
   def show
@@ -21,12 +21,12 @@ class Api::V1::EmployeesController < ApplicationController
   def update
     @employee = Employee.find(params[:id])
     @employee.update(
-                      first_name: params[:first_name],
-                      last_name: params[:last_name],
-                      email: params[:email],
-                      ssn: params[:ssn])
+                      first_name: params[:first_name] || @employee.first_name,
+                      last_name: params[:last_name] || @employee.last_name,
+                      email: params[:email] || @employee.email,
+                      ssn: params[:ssn] || @employee.ssn)
 
-    redirect_to "/api/vi/employees/#{@employee.id}.json"
+    redirect_to "/api/v1/employees/#{@employee.id}.json"
   end
 
   def destroy

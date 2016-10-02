@@ -1,3 +1,7 @@
+<% if current_user && current_user.admin%>
+  <h5><%= link_to 'Create New', '/images/new' %></h5>
+<% end %> 
+
 <% @images.each do |image| %>
   <h2> <%= link_to image.name, "/images/#{image.id}" %></h2>
   <a href="/images/<%= image.id %>"><img src="<%= image.image %>" alt="<%= image.name %>"></a>
@@ -5,4 +9,3 @@
   <h4>Notes: <%= image.notes %></h4>
 <% end %>
 
-<h5><%= link_to 'Create New', '/images/new' %></h5>

@@ -11,10 +11,9 @@
   <body>
 
   <% if current_user %>
-    <li><%= link_to 'Log Out', '/logout', method: :delete %></li>
+    <h4><%= link_to 'Log Out', '/logout', method: :delete %></h4>
   <% else %>
-    <li><a href="/signup">Sign Up</a></li>
-    <li><a href="/login">Log In</a></li>
+    <h4><a href="/signup">Sign Up</a>  |  <a href="/login">Log In</a></h4>
   <% end %> 
     <%= yield %>
   </body>

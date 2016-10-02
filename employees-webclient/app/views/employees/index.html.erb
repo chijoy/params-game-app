@@ -1,6 +1,6 @@
 <h1>Employees</h1>
 
-<%= @employees.each do |employee| %>
-<h2> <a href="/employees/<%= employee["id"] %><%= employee["full_name"] %> </h2>
+<% @employees.each do |employee| %>
+<h4><a href="/employees/<%= employee.id %>"> <%= employee.full_name %></a> </h4>
   <%= render partial: "employee", locals: { employee: employee } %>
 <% end %>

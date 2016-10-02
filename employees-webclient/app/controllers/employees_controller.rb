@@ -1,7 +1,6 @@
 class EmployeesController < ApplicationController
   def index
-    @employees = Employee.all
-    end
+    @employees = Employees.all
   end
 
   def new
@@ -10,7 +9,7 @@ class EmployeesController < ApplicationController
   def create
     @employee = Unirest.post("#{ENV["api_domain_name"]}/api/v1/employees",
                               headers: {"Accept" => "application/json"},
-                              paramters: {
+                              parameters: {
                                 first_name: params[:first_name],
                                 last_name: params[:last_name],
                                 email: params[:email],
@@ -21,11 +20,11 @@ class EmployeesController < ApplicationController
   end
 
   def show
-    @employee = Employee.find(params[:id])    
+    @employee = Employee.find(params[:id]) 
   end
 
   def edit
-    @employee = Unirest.get("#{ENV["api_domain_name"]}/api/vi/empoyees/#{params[:id]}.json").body
+    @employee = Unirest.get("#{ENV["api_domain_name"]}/api/v1/empoyees/#{params[:id]}.json").body
   end
 
   def update
@@ -48,6 +47,4 @@ class EmployeesController < ApplicationController
     flash[:success] = response["message"]
     redirect_to "/employees"
   end
-
-
 end
