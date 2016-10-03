@@ -1,4 +1,4 @@
-<h1>Login Page</h1>
+<h1>Login to Graffiti Grabber</h1>
 
 <%= form_tag '/login', method: :post do %>
   <div>
@@ -9,5 +9,6 @@
     <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
+  <br>
   <%= submit_tag "Log Me In" %>
 <% end %>

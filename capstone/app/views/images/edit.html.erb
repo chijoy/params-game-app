@@ -8,23 +8,22 @@
     <%= label_tag :image, "Describe the graffiti: " %>
     <%= text_field_tag :image, @image.image %>
   </div>
-
+  <br>
   <div>
     <%= label_tag :location, "Where's the graffiti located? " %>
     <%= text_field_tag :location, @image.location %>
   </div>
-  <div>
-    <%= label_tag  :name %>
-    <%= text_field_tag :name, @image.name %>
-  </div>
-  <div>
-    <%= label_tag :notes %>
-    <%= text_field_tag :notes, @image.notes %>
-  </div>
+  <br>
   <div>
     <%= label_tag :status %>
     <%= text_field_tag :status, @image.status %>
   </div>
+  <br>
+  <div>
+    <%= label_tag :notes %>
+    <%= text_field_tag :notes, @image.notes %>
+  </div>
+  <br>
   <div>
     <%= submit_tag "Update the Info" %>
   </div>

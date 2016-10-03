@@ -10,6 +10,10 @@
     <%= text_field_tag :email %>
   </div>
   <div>
+    <%= label_tag :cell_phone_number %>
+    <%= text_field_tag :cell_phone_number %>
+  </div>
+  <div>
     <%= label_tag :password %>
     <%= password_field_tag :password %>
   </div>
@@ -17,5 +21,6 @@
     <%= label_tag :password_confirmation %>
     <%= password_field_tag :password_confirmation %>
   </div>
-  <%= submit_tag "Submit your info" %>
+  <br>
+  <%= submit_tag "Submit your Info" %>
 <% end %>

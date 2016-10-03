@@ -2,11 +2,13 @@
 <% if current_user && current_user.admin%>
   <h2><%= link_to 'Submit Another Graffiti Request', '/images/new' %></h2>
 <% end %> 
+<br>
 
 <% @images.each do |image| %>
   <h4> Graffiti Submission ID#: <%= link_to image.id, "/images/#{image.id}" %></h4>
   <h4>Description: <%= image.image %></h4>
   <h4>Location: <%= image.location %></h4>
+  <h4>Status: <%= image.status %></h4>
   <h4>-----------------------------------</h4>
 <% end %>
 
