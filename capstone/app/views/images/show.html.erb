@@ -1,9 +1,14 @@
 
-<h3><%= link_to 'Home', '/images' %>  |  <%= link_to 'Edit', "/images/#{@image.id}/edit" %>  |  <%= link_to 'Delete', "/images/#{@image.id}", method: :delete %></h3>
+<h2><%= link_to 'Home', '/images' %></h2>
+<br>
 
 <h2><%= @image.image %></h2>
 <h4>Location: <%= @image.location %></h4>
 <h4>Status: <%= @image.status %></h4>
+<h4>Gang Association: <%= @image.assign_to_gang %></h4>
 <h4>-----------------------------------</h4>
 <br>
 
+<% if current_user %>
+  <h3>  <%= link_to 'Edit', "/images/#{@image.id}/edit" %>  |  <%= link_to 'Delete', "/images/#{@image.id}", method: :delete %></h3>
+<% end %> 

@@ -15,6 +15,11 @@
   </div>
   <br>
   <div>
+    <%= label_tag :assign_to_gang, "Assign to a gang: " %>
+    <%= text_field_tag :assign_to_gang, @image.assign_to_gang %>
+  </div>
+  <br>
+  <div>
     <%= label_tag :status %>
     <%= text_field_tag :status, @image.status %>
   </div>

@@ -18,15 +18,9 @@ class ImagesController < ApplicationController
                           status: params[:status],
                           notes: params[:notes],
                           location: params[:location],
-                          user_id: current_user.id
+                          user_id: current_user.id,
+                          assign_to_gang: params[:assign_to_gang]
                           )
-    puts  "*******"
-    puts @image.image
-    puts @image.notes
-    puts @image.status
-    puts @image.location
-    puts @image.name
-    puts "******"
 
     redirect_to '/'
   end
@@ -46,7 +40,8 @@ class ImagesController < ApplicationController
                   name: params[:name],
                   status: params[:status],
                   notes: params[:notes],
-                  location: params[:location]
+                  location: params[:location],
+                  assign_to_gang: params[:assign_to_gang]
                   )
 
     redirect_to "/images/#{@image.id}"
