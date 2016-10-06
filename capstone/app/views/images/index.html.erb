@@ -16,7 +16,7 @@
 
 <h3>Search:</h3>
 <%= form_tag '/images', method: :get do %>
-  <p><%= text_field_tag :search_term, nil, placeholder: "Search" %></p>
+  <p><%= text_field_tag :search_term, nil, placeholder: "Search Gang or Status" %></p>
   <p><%= submit_tag 'Search' %></p>
 <% end %>
 
@@ -26,7 +26,7 @@
   <h4>Description: <%= image.image %></h4>
   <h4>Location: <%= image.location %></h4>
   <h4>Status: <%= image.status %></h4>
-  <h4>Gang Association: <%= image.assign_to_gang %></h4>
+  <h4>Gang Association: <% if image.assign_to_gang %> <%= image.assign_to_gang %> <% else %>Not Assigned<% end %></h4>
   <h4>-----------------------------------</h4>
 <% end %>
 
