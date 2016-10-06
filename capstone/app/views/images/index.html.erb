@@ -1,7 +1,11 @@
 <h1>List of All Graffiti Grabber Submissions</h1>
-<% if current_user && current_user.admin%>
+<% if current_user %>
   <h2><%= link_to 'Submit A Graffiti Notification', '/images/new' %></h2>
+<% else %>
+  <h3>Sign up to submit graffiti cleanup requests!</h3>
 <% end %> 
+
+
 <br>
 
 <% @images.each do |image| %>

@@ -8,7 +8,6 @@
 <h4>Gang Association: <%= @image.assign_to_gang %></h4>
 <h4>-----------------------------------</h4>
 <br>
-
-<% if current_user %>
+<% if current_user && (@image.user_id == current_user.id) %>
   <h3>  <%= link_to 'Edit', "/images/#{@image.id}/edit" %>  |  <%= link_to 'Delete', "/images/#{@image.id}", method: :delete %></h3>
 <% end %> 

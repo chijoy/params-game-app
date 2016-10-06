@@ -14,21 +14,26 @@
     <%= text_field_tag :location, @image.location %>
   </div>
   <br>
-  <div>
-    <%= label_tag :assign_to_gang, "Assign to a gang: " %>
-    <%= text_field_tag :assign_to_gang, @image.assign_to_gang %>
-  </div>
-  <br>
-  <div>
-    <%= label_tag :status %>
-    <%= text_field_tag :status, @image.status %>
-  </div>
-  <br>
-  <div>
-    <%= label_tag :notes %>
-    <%= text_field_tag :notes, @image.notes %>
-  </div>
-  <br>
+
+  <% if current_user && current_user.admin%>
+
+    <div>
+      <%= label_tag :assign_to_gang, "Assign to a gang: " %>
+      <%= text_field_tag :assign_to_gang, nil, placeholder: "Gang not yet assigned." %>
+    </div>
+    <br>
+    <div>
+      <%= label_tag :status %>
+      <%= text_field_tag :status, nil, placeholder: "Status not yet assigned." %>
+    </div>
+    <br>
+    <div>
+      <%= label_tag :notes %>
+      <%= text_field_tag :notes, nil, placeholder: "notes" %>
+    </div>
+    <br>
+  <% end %>
+
   <div>
     <%= submit_tag "Update the Info" %>
   </div>
