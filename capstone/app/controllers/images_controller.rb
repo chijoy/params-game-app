@@ -5,15 +5,21 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all
+    sort_attribute = params[:sort]
+    sort_order = params[:sort_order]
+    search_term = params[:search_term]
 
-      sort_attribute = params[:sort]
-      sort_order = params[:sort_order]
+    if sort_attribute && sort_order
+      @images = @images.order(sort_attribute => sort_order)
+    elsif sort_attribute
+      @images = @images.order(sort_attribute)
+    end
 
-      if sort_attribute && sort_order
-        @images = @images.order(sort_attribute => sort_order)
-      elsif sort_attribute
-        @images = @images.order(sort_attribute)
-      end
+    if search_term
+      fuzzy_search_term = "%#{search_term}%"
+      @images = @images.where("status ILIKE ? OR assign_to_gang ILIKE ?", fuzzy_search_term, fuzzy_search_term)
+    end
+
 
   end
 

@@ -14,7 +14,11 @@
 </ul>
 <br>
 
-
+<h3>Search:</h3>
+<%= form_tag '/images', method: :get do %>
+  <p><%= text_field_tag :search_term, nil, placeholder: "Search" %></p>
+  <p><%= submit_tag 'Search' %></p>
+<% end %>
 
 
 <% @images.each do |image| %>
