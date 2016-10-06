@@ -1,12 +1,21 @@
 <h1>List of All Graffiti Grabber Submissions</h1>
 <% if current_user %>
-  <h2><%= link_to 'Submit A Graffiti Notification', '/images/new' %></h2>
+  <h2><%= link_to 'Submit A Graffiti Clean Up Request', '/images/new' %></h2>
 <% else %>
   <h3>Sign up to submit graffiti cleanup requests!</h3>
 <% end %> 
-
-
 <br>
+
+<h3>Filter by:</h3>
+<ul>
+  <li><a href="/images?sort=status">Status</a></li>
+  <li><a href="/images?sort=assign_to_gang">Gang</a></li>
+  <li><em>Location</em></li>
+</ul>
+<br>
+
+
+
 
 <% @images.each do |image| %>
   <h4> Graffiti Submission ID#: <%= link_to image.id, "/images/#{image.id}" %></h4>

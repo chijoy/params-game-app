@@ -5,6 +5,16 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all
+
+      sort_attribute = params[:sort]
+      sort_order = params[:sort_order]
+
+      if sort_attribute && sort_order
+        @images = @images.order(sort_attribute => sort_order)
+      elsif sort_attribute
+        @images = @images.order(sort_attribute)
+      end
+
   end
 
   def new
