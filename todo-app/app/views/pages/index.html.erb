@@ -1,0 +1,13 @@
+<h1>Welcome!!!</h1>
+
+<div ng-app="app">
+  {{ 1 + 1 }}
+  <div ng-controller="stuffCtrl">
+    <div ng-repeat="task in tasks">{{ task }} </div>
+    
+    <div class="form">
+      <input type="text" ng-model="newTask">
+      <button ng-click="addTask(newTask)">Add Task</button>
+    </div>
+  </div>
+</div>
