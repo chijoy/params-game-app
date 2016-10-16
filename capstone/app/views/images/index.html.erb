@@ -31,6 +31,28 @@
 <% end %>
 <div id="mapid"></div>
 <script>
-  var mymap = L.map('mapid').setView([51.505, -0.09], 13);  
+  var mymap = L.map('mapid').setView([41.8885, -87.6354], 18); 
+  L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
+    attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
+    maxZoom: 18,
+    id: 'mapbox.mapbox-streets-v7',
+    accessToken: 'pk.eyJ1IjoiY2hpam95IiwiYSI6ImNpdWNvcjhtMTAwN2MyeW16Ymt5ZnAydjgifQ.BAA-nidezD_x8V1Cu4bLDg'
+}).addTo(mymap); 
+  var marker = L.marker([41.8885, -87.6354]).addTo(mymap);
+
+  var popup = L.popup();
+
+  var location = <%= @images %>;
+    console.log(location);
+  L.marker([41.8885, -87.6354]).addTo(mymap)
+
+      .bindPopup("A pretty CSS3 popup.<br> ")
+      .openPopup();
+
+  mymap.on('click', onMapClick);
+
 </script>
+
+
+
 
