@@ -1,0 +1,13 @@
+<h1>Peeps</h1>
+
+<div ng-app="app">
+  {{ 1 + 1 }}
+  <div ng-controller="stuffCtrl">
+    <div ng-repeat="person in people">{{ person }} </div>
+    
+    <div class="form">
+      <input type="text" ng-model="newPerson">
+      <button ng-click="addPerson(newPerson)">Add Person</button>
+    </div>
+  </div>
+</div>
