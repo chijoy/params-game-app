@@ -1,20 +1,45 @@
-(function(){
+(function() {
   "use strict";
 
-  angular.module("app").controller("stuffCtrl", function($scope){
-
+  angular.module("app").controller("stuffCtrl", function($scope) {
     $scope.people = [
-                    "Snoopy",
-                    "Linus",
-                    "Peppermint Patty",
-                    "Charlie Brown"
+                      {
+                        name: "Strong Bad",
+                        bio: "He types on the compy.",
+                        bioVisible: false
+                      },
+                      {
+                        name: "The Cheat",
+                        bio: "He's the man, well not a man, but he was still tragdor.",
+                        bioVisible: false
+                      },
+                      {
+                        name: "Homestar",
+                        bio: "He probably walked",
+                        bioVisible: false
+                      }
                     ];
 
-    $scope.addPerson = function(newThing) {
-      $scope.people.push(newThing);
+    $scope.toggleBio = function(person) {
+      person.bioVisible = !person.bioVisible;
+    };
 
-    }
+    $scope.addPerson = function(newName, newBio) {
+      if (newName && newBio) {
+        var newPerson = {
+                          name: newName,
+                          bio: newBio,
+                          bioVisible: false
+                        };
 
-      window.scope = $scope;
+        $scope.people.push(newPerson);
+        $scope.formName = null;
+        $scope.formBio = null;
+      }
+    };
+
+    $scope.deletePerson = function(index) {
+      $scope.people.splice(index, 1);
+    };
   });
 }());

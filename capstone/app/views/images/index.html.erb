@@ -29,4 +29,8 @@
   <h4>Gang Association: <% if image.assign_to_gang %> <%= image.assign_to_gang %> <% else %>Not Assigned<% end %></h4>
   <h4>-----------------------------------</h4>
 <% end %>
+<div id="mapid"></div>
+<script>
+  var mymap = L.map('mapid').setView([51.505, -0.09], 13);  
+</script>
 
