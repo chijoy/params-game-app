@@ -1,41 +1,32 @@
 (function() {
   "use strict";
 
-  angular.module("app").controller("stuffCtrl", function($scope) {
-    $scope.people = [
-                      {
-                        name: "Strong Bad",
-                        bio: "He types on the compy.",
-                        bioVisible: false
-                      },
-                      {
-                        name: "The Cheat",
-                        bio: "He's the man, well not a man, but he was still tragdor.",
-                        bioVisible: false
-                      },
-                      {
-                        name: "Homestar",
-                        bio: "He probably walked",
-                        bioVisible: false
-                      }
-                    ];
+  angular.module("app").controller("stuffCtrl", function($scope, $http) {
+    $scope.setup = function() {
+      $http.get("/api/v1/people.json").then(function(response){
+        $scope.people = response.data;
+      });                
+    };
 
     $scope.toggleBio = function(person) {
       person.bioVisible = !person.bioVisible;
     };
 
-    $scope.addPerson = function(newName, newBio) {
-      if (newName && newBio) {
+    $scope.addPerson = function(newName, newBio) {      
         var newPerson = {
                           name: newName,
                           bio: newBio,
                           bioVisible: false
                         };
 
-        $scope.people.push(newPerson);
-        $scope.formName = null;
-        $scope.formBio = null;
-      }
+        $http.post("/api/v1/people.json", newPerson).then(function(response) {                  
+          $scope.people.push(response.data);
+          $scope.formName = null;
+          $scope.formBio = null;
+          $scope.errors = null;
+        }, function(errorResponse) {
+            $scope.errors = errorResponse.data.errors;    
+        });
     };
 
     $scope.deletePerson = function(index) {
