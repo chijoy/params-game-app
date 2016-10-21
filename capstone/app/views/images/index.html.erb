@@ -1,22 +1,4 @@
 
-
-<h1>List of All Graffiti Grabber Submissions</h1>
-<% if current_user %>
-  <h2><%= link_to 'Submit A Graffiti Clean Up Request', '/images/new' %></h2>
-<% else %>
-  <h3>Sign up to submit graffiti cleanup requests!</h3>
-<% end %> 
-<br>
-
-
-
-<h3>Search:</h3>
-<%= form_tag '/images', method: :get do %>
-  <p><%= text_field_tag :search_term, nil, placeholder: "Search Gang or Status" %></p>
-  <p><%= submit_tag 'Search' %></p>
-<% end %>
-
-
 <% @images.each do |image| %>
   <h4> Graffiti Submission ID#: <%= link_to image.id, "/images/#{image.id}" %></h4>
   <h4>Description: <%= image.image %></h4>

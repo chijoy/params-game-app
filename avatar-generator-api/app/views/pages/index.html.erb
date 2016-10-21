@@ -1,7 +1,7 @@
 <div ng-app="app">
   {{ 1 + 1 }}
   <h1>Avatars</h1>
-  <div ng-controller="stuffCtrl" ng-init="setup()">
+  <div ng-controller="avatarCtrl" ng-init="setup()">
     <div ng-repeat="avatar in avatars track by $index">
       <h4>{{ avatar.name }}</h4>
       <h4>{{ avatar.image }}</h4>

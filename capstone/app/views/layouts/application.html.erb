@@ -70,12 +70,7 @@
     </nav>
 
   </header>
-
-  <% if current_user %>
-    <h4><%= link_to 'Log Out', '/logout', method: :delete %></h4>
-  <% else %>
-    <h4><a href="/signup">Sign Up</a>  |  <a href="/login">Log In</a></h4>
-  <% end %> 
+ 
     <%= yield %>
   </body>
 </html>
