@@ -1,6 +1,5 @@
 class ImagesController < ApplicationController
 
-
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -19,8 +18,6 @@ class ImagesController < ApplicationController
       fuzzy_search_term = "%#{search_term}%"
       @images = @images.where("status ILIKE ? OR assign_to_gang ILIKE ?", fuzzy_search_term, fuzzy_search_term)
     end
-
-
   end
 
   def new

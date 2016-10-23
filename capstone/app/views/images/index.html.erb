@@ -3,7 +3,7 @@
   <h4> Graffiti Submission ID#: <%= link_to image.id, "/images/#{image.id}" %></h4>
   <h4>Description: <%= image.image %></h4>
   <h4>Location: <%= image.location %></h4>
-  <h4>Status: <%= image.status %></h4>
+  <h4>Status: <% if image.status %> <%= image.status %> <% else %>Not Assigned<% end %></h4>
   <h4>Gang Association: <% if image.assign_to_gang %> <%= image.assign_to_gang %> <% else %>Not Assigned<% end %></h4>
   <h4>-----------------------------------</h4>
 <% end %>
