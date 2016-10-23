@@ -15,4 +15,5 @@
 //= require angular
 //= require app
 //= require stuff_ctrl
+//= require angular-animate
 //= require_tree .

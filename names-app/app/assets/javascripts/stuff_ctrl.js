@@ -3,7 +3,7 @@
 
   angular.module("app").controller("stuffCtrl", function($scope, $http) {
     $scope.setup = function() {
-      $http.get("/api/v1/people.json").then(function(response){
+      $http.get("/api/v1/people.json").then(function(response) {
         $scope.people = response.data;
       });                
     };
@@ -29,8 +29,22 @@
         });
     };
 
-    $scope.deletePerson = function(index) {
+    $scope.deletePerson = function(personObj) {
+      var index = $scope.people.indexOf(personObj);
       $scope.people.splice(index, 1);
+    };
+
+    $scope.toggleOrder = function(attribute) {
+      if (attribute != $scope.orderAttribute) {
+        $scope.descending = false;
+      } else {
+        $scope.descending = !$scope.descending;
+      }
+
+      $scope.orderAttribute = attribute;
     };
   });
 }());
+
+
+

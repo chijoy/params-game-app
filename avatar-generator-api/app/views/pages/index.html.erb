@@ -1,20 +1,22 @@
 <div ng-app="app">
   {{ 1 + 1 }}
-  <h1>Avatars</h1>
-  <div ng-controller="avatarCtrl" ng-init="setup()">
-    <div ng-repeat="avatar in avatars track by $index">
-      <h4>{{ avatar.name }}</h4>
-      <h4>{{ avatar.image }}</h4>
+  <h1>Interesting Avatars</h1>
+  <div ng-controller="stuffCtrl" ng-init="setup()">
+  <input type="text" ng-model="nameFilter">
+    <div ng-repeat="avatar in avatars | filter: { name: nameFilter } | orderBy: orderAttribute:descending ">
     </div>
 
     <div class="form">
+      <ul>
+        <li ng-repeat="error in errors">{{ error }}</li>
+      </ul>
       <input type="text" ng-model="formName" placeholder="Avatar">
       <input type="text" ng-model="formImage" placeholder="Image">
       <button ng-click="addAvatar(formName, formImage)">Submit</button>
     </div>
 
     <div>
-      <p>Number of Avatars: {{ avatars.length }}</p>
+      <p>Number of Avatars: {{ people.length }}</p>
     </div>
   </div>
 </div>
