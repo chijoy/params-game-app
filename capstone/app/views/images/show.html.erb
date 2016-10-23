@@ -28,6 +28,7 @@
   </head>
   <body>
     <div id="map"></div>
+    <div id="flag" hidden="true"><%= image_url('Graffiti_Grabber_Icon.jpg') %></div>
     <script>
 
       // The following example creates complex markers to indicate beaches near
@@ -62,9 +63,10 @@
         // Origins, anchor positions and coordinates of the marker increase in the X
         // direction to the right and in the Y direction down.
         var image = {
-          'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-          // file:///Users/joymccaffrey/Desktop/actualize_projects/capstone/app/assets/images/Graffiti_Grabber_Icon.jpg
-          // https://c4.staticflickr.com/6/5614/29806076203_9f6d96a9cb_o.jpg
+          // url: 'https://c4.staticflickr.com/6/5614/29806076203_9f6d96a9cb_o.jpg',
+          // 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
+          url: document.getElementById('flag').innerHTML,
+          //  https://c4.staticflickr.com/6/5614/29806076203_9f6d96a9cb_o.jpg
           // This marker is 20 pixels wide by 32 pixels high.
           size: new google.maps.Size(20, 32),
           // The origin for this image is (0, 0).
