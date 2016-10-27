@@ -14,7 +14,7 @@
   <body class="modern">
   <header>
     
-    
+    <header style="background-image: url('https://c4.staticflickr.com/6/5731/30314281411_88d65f6da6_o.jpg')">
 
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -69,100 +69,10 @@
       </div><!-- /.container-fluid -->
     </nav>
 
-    <div id="map"></div>
-    <div id="flag" hidden="true"><%= image_url('Graffiti_Grabber_Icon1.jpg') %></div>
-    <script>
-
-      // The following example creates complex markers to indicate beaches near
-      // Sydney, NSW, Australia. Note that the anchor is set to (0,32) to correspond
-      // to the base of the flagpole.
-
-      function initMap() {
-        var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: {lat: 41.8885, lng: -87.6354}
-        });
-
-        setMarkers(map);
-      }
-
-      // Data for the markers consisting of a name, a LatLng and a zIndex for the
-      // order in which these markers should display on top of each other.
-      var places = [
-        ['Merchandise Mart', 41.8885, -87.6354, 4],
-        ['Water Tower Place', 41.8971, -87.6244, 5],
-        ['Buckingham Fountain', 41.8758, -87.6189, 3],
-        ['Art Institute', 41.8796, -87.6237, 2],
-        ['Grant Park', 41.8828, 87.6189, 1]
-      ];
-
-      function setMarkers(map) {
-        // Adds markers to the map.
-
-        // Marker sizes are expressed as a Size of X,Y where the origin of the image
-        // (0,0) is located in the top left of the image.
-
-        // Origins, anchor positions and coordinates of the marker increase in the X
-        // direction to the right and in the Y direction down.
-        var image = {
-          // url: 'https://c4.staticflickr.com/6/5614/29806076203_9f6d96a9cb_o.jpg',
-          // 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-          url: document.getElementById('flag').innerHTML,
-          //  https://c4.staticflickr.com/6/5614/29806076203_9f6d96a9cb_o.jpg
-          // This marker is 20 pixels wide by 32 pixels high.
-          size: new google.maps.Size(20, 30),
-          // The origin for this image is (0, 0).
-          origin: new google.maps.Point(0, 0),
-          // The anchor for this image is the base of the flagpole at (0, 32).
-          anchor: new google.maps.Point(0, 30)
-        };
-        // Shapes define the clickable region of the icon. The type defines an HTML
-        // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-        // The final coordinate closes the poly by connecting to the first coordinate.
-        var shape = {
-          coords: [1, 1, 1, 20, 18, 20, 18, 1],
-          type: 'poly'
-        };
-
-        var contentString = '<div id="content">'+
-                    '<div id="siteNotice">'+
-                    '</div>'+
-                    '<h1 id="firstHeading" class="firstHeading">Chicago</h1>'+
-                    '<div id="bodyContent">'+
-                    '<p><b>Chicago</b>, also referred to as <b>The Second City</b>, is a large ' +
-                    'city in Illinois. </p>'+
-                    '</div>'+
-                    '</div>';
-
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
-        
-        for (var i = 0; i < places.length; i++) {
-          var place = places[i];
-          var marker = new google.maps.Marker({
-            position: {lat: place[1], lng: place[2]},
-            map: map,
-            icon: image,
-            shape: shape,
-            title: place[0],
-            zIndex: place[3]
-          });
-        }
-      }
-    </script>
-    <script async defer
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRpgQN5D9dI_8AnHd9QKFwMO5qKV1AUmk&callback=initMap">
-    </script>
-
-      
-
-
   </header>
  
     <%= yield %>
   </body>
 </html>
-
 
 
