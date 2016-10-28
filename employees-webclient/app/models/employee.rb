@@ -16,7 +16,10 @@ class Employee
 
   def self.all 
     collection = []
-    Unirest.get("#{ENV["api_domain_name"]}/api/vi/empoyees.json").body.each do |employee_hash|
+    Unirest.get("#{ENV["api_domain_name"]}/api/v1/empoyees.json",
+      headers: {"Accept" => "application/json",
+        "X-User-Email" => ENV['USER_EMAIL'],
+        "Authorization" => "Token token=#{ ENV['API_TOKEN'] }"}).body.each do |employee_hash|
       collection << Employee.new(employee_hash)
     end
     collection
@@ -49,7 +52,9 @@ class Employee
   end
 
   def delete
-    Unirest.delete("#{ENV["api_domain_name"]}/api/v1/employees/#{"id"}",
-                                  headers: {"Accept" => "application/json"}).body
+    Unirest.delete("#{ENV["API_DOMAIN_NAME"]}/api/v1/employees/#{id}.json,
+                                  headers: {"Accept" => "application/json",
+        "X-User-Email" => ENV['USER_EMAIL'],
+        "Authorization" => "Token token=#{ ENV['API_TOKEN'] }"}).body.each do |employee_hash|"
   end
 end
