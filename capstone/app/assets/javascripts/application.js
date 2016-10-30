@@ -13,6 +13,8 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
+//= require moment
+//= require daterangepicker
 //= require turbolinks
 //= require_tree .
 //= require js/vitality
