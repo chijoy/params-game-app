@@ -13,6 +13,16 @@
   </div>
   <br>
   <div>
-    <%= submit_tag "Submit Your Graffiti" %>
+    <%= label_tag :type_of_surface, "What's the type of surface? " %>
+    <%= text_field_tag :type_of_surface %>
+  </div>
+  <br>
+  <div>
+    <%= label_tag :surface_location, "Where's the surface located? " %>
+    <%= text_field_tag :surface_location %>
+  </div>
+  <br>
+  <div>
+    <%= submit_tag "Submit Graffiti" %>
   </div>
 <% end %>

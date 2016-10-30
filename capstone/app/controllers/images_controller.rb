@@ -32,7 +32,9 @@ class ImagesController < ApplicationController
                           notes: params[:notes],
                           location: params[:location],
                           user_id: current_user.id,
-                          assign_to_gang: params[:assign_to_gang]
+                          assign_to_gang: params[:assign_to_gang],
+                          type_of_surface: params[:type_of_surface],
+                          surface_location: params[:surface_location]
                           )
 
     redirect_to '/'
@@ -54,7 +56,9 @@ class ImagesController < ApplicationController
                   status: params[:status],
                   notes: params[:notes],
                   location: params[:location],
-                  assign_to_gang: params[:assign_to_gang]
+                  assign_to_gang: params[:assign_to_gang],
+                  type_of_surface: params[:type_of_surface],
+                  surface_location: params[:surface_location]
                   )
 
     redirect_to "/images/#{@image.id}"

@@ -1,8 +1,12 @@
 
-<h2><%= @image.image %></h2>
+<h2>Description of Graffiti:<%= @image.image %></h2>
 <h4>Location: <%= @image.location %></h4>
-<h4>Status: <%= @image.status %></h4>
-<h4>Gang Association: <%= @image.assign_to_gang %></h4>
+<h4>Type of Surface: <% if @image.type_of_surface %> <%= @image.type_of_surface %> <% else %>Not Assigned <% end %></h4>
+  <h4>Surface Location: <% if @image.surface_location %> <%= @image.surface_location %> <% else %>Not Assigned <% end %></h4>
+  <h4>Status: <% if @image.status %> <%= @image.status %> <% else %>Not Assigned<% end %></h4>
+  <h4>Gang Association: <% if @image.assign_to_gang %> <%= @image.assign_to_gang %> <% else %>Not Assigned<% end %></h4>
+  <p>Created At: <%= @image.created_at %></p>
+  <p>Updated At: <%= @image.updated_at %></p>
 <h4>-----------------------------------</h4>
 <br>
 <% if current_user && (@image.user_id == current_user.id) %>
@@ -14,7 +18,7 @@
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Joys icons</title>
+    <title>Graffiti Grabber</title>
     <style>
       html, body {
         height: 100%;
@@ -31,10 +35,6 @@
     <div id="flag" hidden="true"><%= image_url('Graffiti_Grabber_Icon1.jpg') %></div>
     <script>
 
-      // The following example creates complex markers to indicate beaches near
-      // Sydney, NSW, Australia. Note that the anchor is set to (0,32) to correspond
-      // to the base of the flagpole.
-
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 15,
@@ -44,8 +44,6 @@
         setMarkers(map);
       }
 
-      // Data for the markers consisting of a name, a LatLng and a zIndex for the
-      // order in which these markers should display on top of each other.
       var places = [
         ['Merchandise Mart', 41.8885, -87.6354, 4],
         ['Water Tower Place', 41.8971, -87.6244, 5],
@@ -55,28 +53,15 @@
       ];
 
       function setMarkers(map) {
-        // Adds markers to the map.
-
-        // Marker sizes are expressed as a Size of X,Y where the origin of the image
-        // (0,0) is located in the top left of the image.
-
-        // Origins, anchor positions and coordinates of the marker increase in the X
-        // direction to the right and in the Y direction down.
+        
         var image = {
-          // url: 'https://c4.staticflickr.com/6/5614/29806076203_9f6d96a9cb_o.jpg',
-          // 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png',
-          url: document.getElementById('flag').innerHTML,
-          //  https://c4.staticflickr.com/6/5614/29806076203_9f6d96a9cb_o.jpg
-          // This marker is 20 pixels wide by 32 pixels high.
+          
+          url: document.getElementById('flag').innerHTML,          
           size: new google.maps.Size(20, 30),
-          // The origin for this image is (0, 0).
           origin: new google.maps.Point(0, 0),
-          // The anchor for this image is the base of the flagpole at (0, 32).
           anchor: new google.maps.Point(0, 30)
         };
-        // Shapes define the clickable region of the icon. The type defines an HTML
-        // <area> element 'poly' which traces out a polygon as a series of X,Y points.
-        // The final coordinate closes the poly by connecting to the first coordinate.
+      
         var shape = {
           coords: [1, 1, 1, 20, 18, 20, 18, 1],
           type: 'poly'

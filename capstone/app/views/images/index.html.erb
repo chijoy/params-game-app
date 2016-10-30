@@ -3,17 +3,20 @@
   <h4> Graffiti Submission ID#: <%= link_to image.id, "/images/#{image.id}" %></h4>
   <h4>Description: <%= image.image %></h4>
   <h4>Location: <%= image.location %></h4>
+  <h4>Type of Surface: <% if image.type_of_surface %> <%= image.type_of_surface %> <% else %>Not Assigned <% end %></h4>
+  <h4>Surface Location: <% if image.surface_location %> <%= image.surface_location %> <% else %>Not Assigned <% end %></h4>
   <h4>Status: <% if image.status %> <%= image.status %> <% else %>Not Assigned<% end %></h4>
   <h4>Gang Association: <% if image.assign_to_gang %> <%= image.assign_to_gang %> <% else %>Not Assigned<% end %></h4>
   <h4>------------------</h4>
 <% end %>
+
 
 <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Joys icons</title>
+    <title>Graffiti Grabber</title>
     <style>
       html, body {
         height: 100%;
@@ -30,17 +33,10 @@
     <div id="flag" hidden="true"><%= image_url('Graffiti_Grabber_Icon1.jpg') %></div>
     <script>
 
-      // The following example creates complex markers to indicate beaches near
-      // Sydney, NSW, Australia. Note that the anchor is set to (0,32) to correspond
-      // to the base of the flagpole.
-
-      // This example displays a marker at the center of Australia.
-      // When the user clicks the marker, an info window opens.
-
       function initMap() {
         var merchmart = {lat: 41.8885, lng: -87.6354};
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
+          zoom: 18,
           center: merchmart
         });
 
