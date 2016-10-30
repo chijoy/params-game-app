@@ -1,16 +1,17 @@
 
-<h2>Description of Graffiti:<%= @image.image %></h2>
-<h4>Location: <%= @image.location %></h4>
-<h4>Type of Surface: <% if @image.type_of_surface %> <%= @image.type_of_surface %> <% else %>Not Assigned <% end %></h4>
-  <h4>Surface Location: <% if @image.surface_location %> <%= @image.surface_location %> <% else %>Not Assigned <% end %></h4>
-  <h4>Status: <% if @image.status %> <%= @image.status %> <% else %>Not Assigned<% end %></h4>
-  <h4>Gang Association: <% if @image.assign_to_gang %> <%= @image.assign_to_gang %> <% else %>Not Assigned<% end %></h4>
-  <p>Created At: <%= @image.created_at %></p>
-  <p>Updated At: <%= @image.updated_at %></p>
-<h4>-----------------------------------</h4>
+<p>Description of Graffiti:<%= @image.image %></p>
+<p>Location: <%= @image.location %></p>
+<p>Type of Surface: <% if @image.type_of_surface %> <%= @image.type_of_surface %> <% else %>Not Assigned <% end %></p>
+  <p>Surface Location: <% if @image.surface_location %> <%= @image.surface_location %> <% else %>Not Assigned <% end %></p>
+  <p>Status: <% if @image.status %> <%= @image.status %> <% else %>Not Assigned<% end %></p>
+  <p>Gang Association: <% if @image.assign_to_gang %> <%= @image.assign_to_gang %> <% else %>Not Assigned<% end %></p>
+  <br>
+  <p>Created At: <%= @image.pretty_created_at %></p>
+  <p>Updated At: <%= @image.pretty_updated_at %></p>
+<p>-----------------------------------</p>
 <br>
 <% if current_user && (@image.user_id == current_user.id) %>
-  <h3>  <%= link_to 'Edit', "/images/#{@image.id}/edit" %>  |  <%= link_to 'Delete', "/images/#{@image.id}", method: :delete %></h3>
+  <p>  <%= link_to 'Edit', "/images/#{@image.id}/edit" %>  |  <%= link_to 'Delete', "/images/#{@image.id}", method: :delete %></p>
 <% end %> 
 
 <!DOCTYPE html>

@@ -1,9 +1,6 @@
-
-
 <h1>Manage the Graffiti Image Submission</h1>
 
-<%= form_tag "/images/#{@image.id}", method: :patch do %>
-  
+<%= form_tag "/images/#{@image.id}", method: :patch do %>  
   <div>
     <%= label_tag :image, "Describe the graffiti: " %>
     <%= text_field_tag :image, @image.image %>
@@ -14,107 +11,99 @@
     <%= text_field_tag :location, @image.location %>
   </div>
   <br>
-
-  <% if current_user && current_user.admin%>
-
-    
-    <div>
-      <%= label_tag :assign_to_gang, "Assign to a gang " %>
-      <%= select_tag :assign_to_gang, options_for_select([
-                                                  "Please Assign",
-                                                  "Ashland Vikings",
-                                                  "Bishops",
-                                                  "Black Disciples",
-                                                  "Familia Stones",
-                                                  "Gangster Disciples",
-                                                  "Imperial Gangsters",
-                                                  "Insane Unknowns",
-                                                  "La Raza",
-                                                  "Latin Angels",
-                                                  "Latin Brothers",
-                                                  "Latin Counts",
-                                                  "Latin Dragons",
-                                                  "Latin Jivers",
-                                                  "Latin Kings",
-                                                  "Latin Souls",
-                                                  "Mickey Cobras",
-                                                  "Party People", 
-                                                  "Satan Disciple",
-                                                  "Simon City Royals",
-                                                  "Spanish Gangster Disciple",
-                                                  "Spanish Lords",
-                                                  "Two Two Boys", 
-                                                  ]) %>
-    </div>
-    <br>
-
-
-    
-    <div>
-      <%= label_tag :status, "What's the type of surface? " %>
-      <%= select_tag :status, options_for_select([
-                                                  "Open", 
-                                                  "Completed",
-                                                  "Duplicate"]) %>
-    </div>
-    <br>
-    
-    <div>
-      <%= label_tag :surface_location, "Where's the surface located? " %>
-      <%= select_tag :surface_location, options_for_select([
-                                                            "Please Select", 
-                                                            "Alley",
-                                                            "Bench",
-                                                            "Door",
-                                                            "Dumpster",
-                                                            "Expressway",
-                                                            "Fence",
-                                                            "Front",
-                                                            "Garage",
-                                                            "Garbage Cart",
-                                                            "Hydrant",
-                                                            "Mailbox",
-                                                            "Newspaper Box",
-                                                            "Overpass",
-                                                            "Phone",
-                                                            "Pole",
-                                                            "Rear",
-                                                            "Side",
-                                                            "Sign",
-                                                            "Traffic Control",
-                                                            "Viaduct"])%>
-    </div>
-    <br>
-    <div>
-      <%= label_tag :type_of_surface, "What's the type of surface? " %>
-      <%= select_tag :type_of_surface, options_for_select([
+  <% if current_user && current_user.admin%>   
+  <div>
+    <%= label_tag :assign_to_gang, "Assign to a gang " %>
+    <%= select_tag :assign_to_gang, options_for_select([
+                                                "Please Assign",
+                                                "Ashland Vikings",
+                                                "Bishops",
+                                                "Black Disciples",
+                                                "Familia Stones",
+                                                "Gangster Disciples",
+                                                "Imperial Gangsters",
+                                                "Insane Unknowns",
+                                                "La Raza",
+                                                "Latin Angels",
+                                                "Latin Brothers",
+                                                "Latin Counts",
+                                                "Latin Dragons",
+                                                "Latin Jivers",
+                                                "Latin Kings",
+                                                "Latin Souls",
+                                                "Mickey Cobras",
+                                                "Party People", 
+                                                "Satan Disciple",
+                                                "Simon City Royals",
+                                                "Spanish Gangster Disciple",
+                                                "Spanish Lords",
+                                                "Two Two Boys", 
+                                                ]) %>
+  </div>
+  <br>    
+  <div>
+    <%= label_tag :status, "What's the type of surface? " %>
+    <%= select_tag :status, options_for_select([
+                                                "Open", 
+                                                "Completed",
+                                                "Duplicate"]) %>
+  </div>
+  <br>  
+  <div>
+    <%= label_tag :surface_location, "Where's the surface located? " %>
+    <%= select_tag :surface_location, options_for_select([
                                                           "Please Select", 
-                                                          "Aluminum Siding",
-                                                          "Asphalt",
-                                                          "Brick - Painted",
-                                                          "Brick - Unpainted",
-                                                          "Cement(Sidewalk, Alley, Wall, Curb)",
-                                                          "Glass",
-                                                          "Limestone",
-                                                          "Marble/Granite",
-                                                          "Metal",
-                                                          "Metal - Painted",                   
-                                                          "Metal - Unpainted", 
-                                                          "Other/Unknown Surface", 
-                                                          "Stucco",
-                                                          "Tree",
-                                                          "Vinyl Siding",                        
-                                                          "Wood - Painted", 
-                                                          "Wood - Unpainted"]) %>
-    </div>
-    <br>
-    <div>
-      <%= label_tag :notes %>
-      <%= text_field_tag :notes, nil, placeholder: "Notes" %>
-    </div>
-    <br>
+                                                          "Alley",
+                                                          "Bench",
+                                                          "Door",
+                                                          "Dumpster",
+                                                          "Expressway",
+                                                          "Fence",
+                                                          "Front",
+                                                          "Garage",
+                                                          "Garbage Cart",
+                                                          "Hydrant",
+                                                          "Mailbox",
+                                                          "Newspaper Box",
+                                                          "Overpass",
+                                                          "Phone",
+                                                          "Pole",
+                                                          "Rear",
+                                                          "Side",
+                                                          "Sign",
+                                                          "Traffic Control",
+                                                          "Viaduct"])%>
+  </div>
+  <br>
+  <div>
+    <%= label_tag :type_of_surface, "What's the type of surface? " %>
+    <%= select_tag :type_of_surface, options_for_select([
+                                                        "Please Select", 
+                                                        "Aluminum Siding",
+                                                        "Asphalt",
+                                                        "Brick - Painted",
+                                                        "Brick - Unpainted",
+                                                        "Cement(Sidewalk, Alley, Wall, Curb)",
+                                                        "Glass",
+                                                        "Limestone",
+                                                        "Marble/Granite",
+                                                        "Metal",
+                                                        "Metal - Painted",                   
+                                                        "Metal - Unpainted", 
+                                                        "Other/Unknown Surface", 
+                                                        "Stucco",
+                                                        "Tree",
+                                                        "Vinyl Siding",                        
+                                                        "Wood - Painted", 
+                                                        "Wood - Unpainted"]) %>
+  </div>
+  <br>
+  <div>
+    <%= label_tag :notes %>
+    <%= text_field_tag :notes, nil, placeholder: "Notes" %>
+  </div>
+  <br>
   <% end %>
-
   <div>
     <%= submit_tag "Update the Info" %>
   </div>

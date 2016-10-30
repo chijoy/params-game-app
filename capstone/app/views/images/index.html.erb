@@ -1,13 +1,13 @@
 
 <% @images.each do |image| %>
-  <h4> Graffiti Submission ID#: <%= link_to image.id, "/images/#{image.id}" %></h4>
-  <h4>Description: <%= image.image %></h4>
-  <h4>Location: <%= image.location %></h4>
-  <h4>Type of Surface: <% if image.type_of_surface %> <%= image.type_of_surface %> <% else %>Not Assigned <% end %></h4>
-  <h4>Surface Location: <% if image.surface_location %> <%= image.surface_location %> <% else %>Not Assigned <% end %></h4>
-  <h4>Status: <% if image.status %> <%= image.status %> <% else %>Not Assigned<% end %></h4>
-  <h4>Gang Association: <% if image.assign_to_gang %> <%= image.assign_to_gang %> <% else %>Not Assigned<% end %></h4>
-  <h4>------------------</h4>
+  <p> Graffiti Submission ID#: <%= link_to image.id, "/images/#{image.id}" %></p>
+  <p>Description: <%= image.image %></p>
+  <p>Location: <%= image.location %></p>
+  <p>Type of Surface: <% if image.type_of_surface %> <%= image.type_of_surface %> <% else %>Not Assigned <% end %></p>
+  <p>Surface Location: <% if image.surface_location %> <%= image.surface_location %> <% else %>Not Assigned <% end %></p>
+  <p>Status: <% if image.status %> <%= image.status %> <% else %>Not Assigned<% end %></p>
+  <p>Gang Association: <% if image.assign_to_gang %> <%= image.assign_to_gang %> <% else %>Not Assigned<% end %></p>
+  <p>------------------</p>
 <% end %>
 
 
