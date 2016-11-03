@@ -24,21 +24,24 @@
         padding: 0;
       }
       #map {
-        height: 100%;
+        height: 50%;
       }
     </style>
   </head>
   <body>
     <div id="map"></div>
-    <div id="flag" hidden="true"><%= image_url('Graffiti_Grabber_Icon1.jpg') %></div>
+    <div id="flag" hidden="true"><%= image_url('Graffiti_Grabber_Icon1.png') %></div>
     <script>
 
       function initMap() {
         var merchmart = {lat: 41.8885, lng: -87.6354};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
-          center: merchmart
+          center: merchmart,
+          streetViewControl: false
+          
         });
+        map.setMapTypeId(google.maps.MapTypeId.HYBRID);
 
         var contentString = '<div id="content">'+
             '<div id="siteNotice">'+

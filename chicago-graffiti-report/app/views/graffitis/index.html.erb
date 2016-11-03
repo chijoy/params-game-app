@@ -1,0 +1,9 @@
+<h1>Chicago Graffiti</h1>
+
+<%= @graffitis.each do |graffiti| %>
+  <h2>Service Request Number: <%= graffiti["service_request_number"] %></h2>
+  <h2>Creation Date: <%= graffiti["creation_date"] %></h2>
+  <h2>Status: <%= graffiti["status"] %></h2>
+  <h2>------------------------------------</h2>
+  <br> 
+<% end %>

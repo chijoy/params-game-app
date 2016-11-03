@@ -27,7 +27,7 @@
         padding: 0;
       }
       #map {
-        height: 100%;
+        height: 80%;
       }
     </style>
   </head>
@@ -38,9 +38,11 @@
 
       function initMap() {
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 15,
-          center: {lat: 41.8885, lng: -87.6354}
+          zoom: 18,
+          center: {lat: 41.8885, lng: -87.6354},
+          streetViewControl: false
         });
+        map.setMapTypeId(google.maps.MapTypeId.HYBRID);
 
         setMarkers(map);
       }
