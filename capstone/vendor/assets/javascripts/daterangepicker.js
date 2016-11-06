@@ -6,7 +6,11 @@
 * @website: https://www.improvely.com/
 */
 // Follow the UMD template https://github.com/umdjs/umd/blob/master/templates/returnExportsGlobal.js
-(function (root, factory) {
+(function(root, factory) {
+    $('#applyBtn').click(function(){
+        console.log("hi")
+    })
+
     if (typeof define === 'function' && define.amd) {
         // AMD. Make globaly available as well
         define(['moment', 'jquery'], function (moment, jquery) {
@@ -118,7 +122,7 @@
                 '</div>' +
                 '<div class="ranges">' +
                     '<div class="range_inputs">' +
-                        '<button class="applyBtn" disabled="disabled" type="button"></button> ' +
+                        '<button class="applyBtn" id="applyBtn" disabled="disabled" type="button"></button> ' +
                         '<button class="cancelBtn" type="button"></button>' +
                     '</div>' +
                 '</div>' +
@@ -1620,3 +1624,5 @@
     return DateRangePicker;
 
 }));
+
+

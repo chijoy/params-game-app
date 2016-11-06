@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161030182648) do
+ActiveRecord::Schema.define(version: 20161105205449) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,6 +39,9 @@ ActiveRecord::Schema.define(version: 20161030182648) do
     t.string   "assign_to_gang"
     t.string   "type_of_surface"
     t.string   "surface_location"
+    t.integer  "latitude"
+    t.integer  "longitude"
+    t.string   "graffiti_image"
   end
 
   create_table "users", force: :cascade do |t|

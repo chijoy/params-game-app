@@ -1,10 +1,12 @@
-
+<p>Image Here: <%= @image.graffiti_image %></p>
 <p>Description of Graffiti:<%= @image.image %></p>
 <p>Location: <%= @image.location %></p>
 <p>Type of Surface: <% if @image.type_of_surface %> <%= @image.type_of_surface %> <% else %>Not Assigned <% end %></p>
   <p>Surface Location: <% if @image.surface_location %> <%= @image.surface_location %> <% else %>Not Assigned <% end %></p>
   <p>Status: <% if @image.status %> <%= @image.status %> <% else %>Not Assigned<% end %></p>
   <p>Gang Association: <% if @image.assign_to_gang %> <%= @image.assign_to_gang %> <% else %>Not Assigned<% end %></p>
+  <p>Latitude: <%= @image.latitude %></p>
+  <p>Longitude: <%= @image.longitude %></p>
   <br>
   <p>Created At: <%= @image.pretty_created_at %></p>
   <p>Updated At: <%= @image.pretty_updated_at %></p>
@@ -43,6 +45,9 @@
           streetViewControl: false
         });
         map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+
+        map.data.loadGeoJson(
+        'https://storage.googleapis.com/mapsdevsite/json/google.json');
 
         setMarkers(map);
       }

@@ -15,6 +15,7 @@
 //= require jquery_ujs
 //= require moment
 //= require daterangepicker
+//= require bootstrap-datepicker
 //= require turbolinks
 //= require_tree .
 //= require js/vitality
