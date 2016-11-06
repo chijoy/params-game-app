@@ -1,5 +1,4 @@
 class ImagesController < ApplicationController
-
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
@@ -7,6 +6,8 @@ class ImagesController < ApplicationController
     sort_attribute = params[:sort]
     sort_order = params[:sort_order]
     search_term = params[:search_term]
+    start_date = params[:start]
+    end_date = params[:end]
 
     if sort_attribute && sort_order
       @images = @images.order(sort_attribute => sort_order)
@@ -18,7 +19,17 @@ class ImagesController < ApplicationController
       fuzzy_search_term = "%#{search_term}%"
       @images = @images.where("status ILIKE ? OR assign_to_gang ILIKE ?", fuzzy_search_term, fuzzy_search_term)
     end
+
+    if start_date && end_date
+      layout = false
+      @images = @images.where("DATE(created_at) >= ? AND DATE(created_at) <= ?", start_date, end_date)
+    else 
+
+      layout = true
+    end
+    render :index, layout: layout
   end
+
 
   def new
     @image = Image.new
