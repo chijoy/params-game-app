@@ -35,7 +35,7 @@
   </head>
   <body>
     <div id="map"></div>
-    <div id="flag" hidden="true"><%= image_url('Graffiti_Grabber_Icon1.png') %></div>
+    
     <script>
 
       function initMap() {
@@ -48,46 +48,44 @@
         });
         map.setMapTypeId(google.maps.MapTypeId.HYBRID);
 
-        map.data.loadGeoJson('/convertcsv.js');
+        var layer = new google.maps.FusionTablesLayer({
+            query: {
+              select: 'latitude',
+              from: '1XHtoPNJomwLyGa3Ud2pbhDgf4u05GGe6JLwgoXsg'
+            }
+          });
+          layer.setMap(map);
 
-        // var script = document.createElement('script');
-        // script.src = '/convertcsv.js';
-        // document.getElementsByTagName('head')[0].appendChild(script);
 
-        // window.eqfeed_callback = function(results) {
-        // for (var i = 0; i < results.features.length; i++) {
-        //   var coords = results.features[i].geometry.coordinates;
-        //   var latLng = new google.maps.LatLng(coords[1],coords[0]);
-        //   var marker = new google.maps.Marker({
-        //     position: latLng,
-        //     map: map
-        //   });
-        // }
+        // map.data.loadGeoJson('/convertcsv.js');
 
-        var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">Merchandise Mart</h1>'+
-            '<div id="bodyContent">'+
-            '<p><b>Merchandise Mart</b> is in Chicago.</p>'+
-            '<% @images.each do |image| %>'+
-            '<h4>Location: <%= image.location %></h4>'+
-            '<% end %>'+
-            '</div>'+
-            '</div>';
 
-        var infowindow = new google.maps.InfoWindow({
-          content: contentString
-        });
+        // var contentString = '<div id="content">'+
+        //     '<div id="siteNotice">'+
+        //     '</div>'+
+        //     '<h1 id="firstHeading" class="firstHeading">Merchandise Mart</h1>'+
+        //     '<div id="bodyContent">'+
+        //     '<p><b>Merchandise Mart</b> is in Chicago.</p>'+
+        //     '<% @images.each do |image| %>'+
+        //     '<h4>Location: <%= image.location %></h4>'+
+        //     '<% end %>'+
+        //     '</div>'+
+        //     '</div>';
 
-        var marker = new google.maps.Marker({
-          position: merchmart,
-          map: map,
-          title: 'Merchandise Mart'
-        });
-        marker.addListener('click', function() {
-          infowindow.open(map, marker);
-        });
+        // var infowindow = new google.maps.InfoWindow({
+        //   content: contentString
+        // });
+
+        // var marker = new google.maps.Marker({
+        //   position: merchmart,
+        //   map: map          
+        // });
+        // marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
+        
+        // marker.addListener('click', function() {
+        //   infowindow.open(map, marker);
+        // });
+        
       }
     </script>
     <script async defer
