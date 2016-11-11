@@ -48,18 +48,20 @@
 
         $.get('/', function(data) {
           for (i = 0; i < data.length; i++) {
-            data_hash = data[i];
-            data_hash.lat = parseFloat(data_hash.lat);
-            data_hash.lng = parseFloat(data_hash.lng);
-            
+            data_hash = {};
+            data_hash.lat = parseFloat(data[i].lat);
+            data_hash.lng = parseFloat(data[i].lng);
+                        
             var marker = new google.maps.Marker({
               position: data_hash,
             map: map
           });
 
-            // add infowindow logic here
-            var graffitiContent = '<p>Status: <%= @image.status %></p>'+
-                                  '<p>Gang: <%= @image.assign_to_gang %></p>';
+            var graffitiContent = '<p>ID: ' + data[i].id + '</p>'+
+                                  '<p>Gang: ' + data[i].gang + '</p>'+
+                                  '<p>Surface Location: ' + data[i].surface_location + '</p>'+
+                                  '<p>Location Type: ' + data[i].type_of_surface + '</p>'+
+                                  '<p>Status: ' + data[i].status  + '</p>';
 
             var infowindow = new google.maps.InfoWindow({
                 content: graffitiContent
@@ -68,9 +70,9 @@
             marker.addListener('click', function() {
                 infowindow.open(map, marker);
               });
+            console.log(data[i])
           }
         });
-        // setMarkers(map);
       }
      
     </script>

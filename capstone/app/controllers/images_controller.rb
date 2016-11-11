@@ -30,7 +30,15 @@ class ImagesController < ApplicationController
 
     if request.xhr?        
       @images = @images.map do |image| 
-          {lat: image.latitude, lng: image.longitude}
+          {lat: image.latitude, 
+            lng: image.longitude,
+            id: image.id,
+            gang: image.assign_to_gang, 
+            status: image.status,
+            surface_location: image.surface_location,
+            type_of_surface: image.type_of_surface
+            }
+
         end
       render json: @images
     else
