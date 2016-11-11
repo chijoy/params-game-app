@@ -27,9 +27,16 @@ class ImagesController < ApplicationController
 
       layout = true
     end
-    render :index, layout: layout
-  end
 
+    if request.xhr?        
+      @images = @images.map do |image| 
+          {lat: image.latitude, lng: image.longitude}
+        end
+      render json: @images
+    else
+      render :index, layout: layout
+    end
+  end
 
   def new
     @image = Image.new

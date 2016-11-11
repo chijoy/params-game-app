@@ -16,12 +16,12 @@
   <% end %>
   </div>
 
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
   <head>
     <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
     <meta charset="utf-8">
-    <title>Graffiti Grabber</title>
+    <title>Graffiti Grabber</title> -->
     <style>
       html, body {
         height: 100%;
@@ -32,64 +32,147 @@
         height: 50%;
       }
     </style>
-  </head>
-  <body>
-    <div id="map"></div>
-    
+<!--   </head>
+  <body> -->
+    <div id="map"></div>    
     <script>
+
+      // var mapData = {
+      //                "type" => "FeatureCollection",
+      //                "features" => [
+      //                               {
+      //                                 "type" => "Feature",
+      //                                 "geometry" => {
+      //                                    "type" => "Point",
+      //                                    "coordinates" =>  [ -87.69952060096388,41.82828363660752 ]
+      //                                 },
+      //                                 "properties" => {
+      //                                 "Creation Date" =>"11/01/2016",
+      //                                 "Status" =>"Open",
+      //                                 "Completion Date" =>"",
+      //                                 "Service Request Number" =>"16-07570864",
+      //                                 "What Type of Surface is the Graffiti on?" =>"Brick - Painted",
+      //                                 "Where is the Graffiti located?" =>"Front",
+      //                                 "Gang" =>""
+      //                                 }
+      //                               },
+      //                               {
+      //                                 "type" => "Feature",
+      //                                 "geometry" => {
+      //                                    "type" => "Point",
+      //                                    "coordinates" =>  [ -87.69060219734664,41.82823737248976 ]
+      //                                 },
+      //                                 "properties" => {
+      //                                 "Creation Date" =>"11/01/2016",
+      //                                 "Status" =>"Open",
+      //                                 "Completion Date" =>"",
+      //                                 "Service Request Number" =>"16-07570868",
+      //                                 "What Type of Surface is the Graffiti on?" =>"Metal - Painted",
+      //                                 "Where is the Graffiti located?" =>"Front",
+      //                                 "Gang" =>""
+      //                                 }
+      //                               },
+      //                               {
+      //                                 "type" => "Feature",
+      //                                 "geometry" => {
+      //                                    "type" => "Point",
+      //                                    "coordinates" =>  [ -87.70211511711675,41.81997659533137 ]
+      //                                 },
+      //                                 "properties" => {
+      //                                 "Creation Date" =>"11/01/2016",
+      //                                 "Status" =>"Open",
+      //                                 "Completion Date" =>"",
+      //                                 "Service Request Number" =>"16-07570871",
+      //                                 "What Type of Surface is the Graffiti on?" =>"Brick - Painted",
+      //                                 "Where is the Graffiti located?" =>"Front",
+      //                                 "Gang" =>""
+      //                                 }
+      //                               },
+      //                               {
+      //                                 "type" => "Feature",
+      //                                 "geometry" => {
+      //                                    "type" => "Point",
+      //                                    "coordinates" =>  [ -87.70189144979919,41.825656538128555 ]
+      //                                 },
+      //                                 "properties" => {
+      //                                 "Creation Date" =>"11/01/2016",
+      //                                 "Status" =>"Open",
+      //                                 "Completion Date" =>"",
+      //                                 "Service Request Number" =>"16-07570877",
+      //                                 "What Type of Surface is the Graffiti on?" =>"Brick - Painted",
+      //                                 "Where is the Graffiti located?" =>"Front",
+      //                                 "Gang" =>""
+      //                                 }
+      //                               },
+      //                               {
+      //                                 "type" => "Feature",
+      //                                 "geometry" => {
+      //                                    "type" => "Point",
+      //                                    "coordinates" =>  [ -87.70190359589725,41.82649395898346 ]
+      //                                 },
+      //                                 "properties" => {
+      //                                 "Creation Date" =>"11/01/2016",
+      //                                 "Status" =>"Open",
+      //                                 "Completion Date" =>"",
+      //                                 "Service Request Number" =>"16-07570914",
+      //                                 "What Type of Surface is the Graffiti on?" =>"Brick - Painted",
+      //                                 "Where is the Graffiti located?" =>"Front",
+      //                                 "Gang" =>""
+      //                                 }
+      //                               }
+      //                             ]
+      //               };
 
       function initMap() {
         var merchmart = {lat: 41.8885, lng: -87.6354};
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 18,
           center: merchmart,
-          streetViewControl: false
-          
+          streetViewControl: false          
         });
-        map.setMapTypeId(google.maps.MapTypeId.HYBRID);
+        map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 
-        var layer = new google.maps.FusionTablesLayer({
-            query: {
-              select: 'latitude',
-              from: '1XHtoPNJomwLyGa3Ud2pbhDgf4u05GGe6JLwgoXsg'
-            }
+        $.get('/', function(data) {
+          for (i = 0; i < data.length; i++) {
+            data_hash = data[i];
+            data_hash.lat = parseFloat(data_hash.lat);
+            data_hash.lng = parseFloat(data_hash.lng);
+            
+            var marker = new google.maps.Marker({
+              position: data_hash,
+            map: map
           });
-          layer.setMap(map);
 
+            // add infowindow logic here
+          }
+        });
 
-        // map.data.loadGeoJson('/convertcsv.js');
-
-
-        // var contentString = '<div id="content">'+
-        //     '<div id="siteNotice">'+
-        //     '</div>'+
-        //     '<h1 id="firstHeading" class="firstHeading">Merchandise Mart</h1>'+
-        //     '<div id="bodyContent">'+
-        //     '<p><b>Merchandise Mart</b> is in Chicago.</p>'+
-        //     '<% @images.each do |image| %>'+
-        //     '<h4>Location: <%= image.location %></h4>'+
-        //     '<% end %>'+
-        //     '</div>'+
-        //     '</div>';
-
-        // var infowindow = new google.maps.InfoWindow({
-        //   content: contentString
-        // });
-
-        // var marker = new google.maps.Marker({
-        //   position: merchmart,
-        //   map: map          
-        // });
-        // marker.setIcon('http://maps.google.com/mapfiles/ms/icons/blue-dot.png')
         
-        // marker.addListener('click', function() {
-        //   infowindow.open(map, marker);
-        // });
-        
+
+        // setMarkers(map);
       }
+
+      // var infowindow = new google.maps.InfoWindow();
+
+      // var marker, i;
+
+      // for (i = 0; i < mapData.length; i++) { 
+      //   marker = new google.maps.Marker({
+      //     position: new google.maps.LatLng(mapData[features][coordinates][0], mapData[features][coordinates][1]),
+      //     map: map
+      //   });
+
+      //   google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      //     return function() {
+      //       infowindow.setContent(mapData[i][0]);
+      //       infowindow.open(map, marker);
+      //     }
+      //   })(marker, i));
+      // }
+     
     </script>
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRpgQN5D9dI_8AnHd9QKFwMO5qKV1AUmk&callback=initMap">
     </script>
-  </body>
-</html>
+<!--   </body>
+</html> -->

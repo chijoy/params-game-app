@@ -40,7 +40,8 @@
                                                 "Spanish Gangster Disciple",
                                                 "Spanish Lords",
                                                 "Two Two Boys", 
-                                                ]) %>
+                                                ], 
+                                                @image.assign_to_gang) %>
   </div>
   <br>    
   <div>
@@ -48,7 +49,8 @@
     <%= select_tag :status, options_for_select([
                                                 "Open", 
                                                 "Completed",
-                                                "Duplicate"]) %>
+                                                "Duplicate"],
+                                                @image.status) %>
   </div>
   <br>  
   <div>
@@ -74,7 +76,8 @@
                                                           "Side",
                                                           "Sign",
                                                           "Traffic Control",
-                                                          "Viaduct"])%>
+                                                          "Viaduct"],
+                                                          @image.surface_location)%>
   </div>
   <br>
   <div>
@@ -97,17 +100,18 @@
                                                         "Tree",
                                                         "Vinyl Siding",                        
                                                         "Wood - Painted", 
-                                                        "Wood - Unpainted"]) %>
+                                                        "Wood - Unpainted"],
+                                                        @image.type_of_surface) %>
   </div>
   <br>
   <div>
     <%= label_tag :latitude %>
-    <%= text_field_tag :latitude %>
+    <%= text_field_tag :latitude, @image.latitude %>
   </div>
   <br>
   <div>
     <%= label_tag :longitude %>
-    <%= text_field_tag :longitude %>
+    <%= text_field_tag :longitude, @image.longitude %>
   </div>
   <br>
   <div>
