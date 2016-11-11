@@ -12,6 +12,39 @@
   </div>
   <br>
   <div>
+    <%= label_tag :assign_to_gang, "Assign to a gang " %>
+    <%= select_tag :assign_to_gang, options_for_select([
+                                                "Please Assign",
+                                                "Almighty Simon City Royals",
+                                                "Ashland Vikings",
+                                                "Bishops",
+                                                "Black Disciples",
+                                                "Crips",
+                                                "Familia Stones",
+                                                "Gangster Disciples",
+                                                "Imperial Gangsters",
+                                                "Insane Unknowns",
+                                                "La Raza",
+                                                "Latin Angels",
+                                                "Latin Brothers",
+                                                "Latin Counts",
+                                                "Latin Dragons",
+                                                "Latin Jivers",
+                                                "Latin Kings",
+                                                "Latin Souls",
+                                                "Maniac Latin Disciples",
+                                                "Mickey Cobras",
+                                                "Party People", 
+                                                "Satan Disciple",
+                                                "Simon City Royals",
+                                                "Spanish Gangster Disciple",
+                                                "Spanish Lords",
+                                                "Two Two Boys", 
+                                                ], 
+                                                @image.assign_to_gang) %>
+  </div>
+  <br>
+  <div>
      <%= label_tag :type_of_surface, "What's the type of surface? " %>
      <%= select_tag :type_of_surface, options_for_select([
                                                          "Please Select", 
