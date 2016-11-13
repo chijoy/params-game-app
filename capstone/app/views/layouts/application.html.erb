@@ -12,7 +12,7 @@
   </head>
 
   <body class="modern">
-  <header>
+  <header id="my-gd-header">
     
     
 
@@ -78,50 +78,65 @@
           }
           #map {
             height: 90%;
+            *, *:before, *:after {
+                    -moz-box-sizing: content-box!important;
+                    -webkit-transform: none !important;
+                    box-sizing: content-box !important;
+                }
+                img {
+                    max-width: none;
+                    max-height: none !important;
+                    height: auto;
+                }
+                label {
+                    width: auto;
+                    display: inline;
+                }
           }
         </style>
     <!--   </head>
       <body> -->
-        <div id="map"></div>    
+            
         <script>
 
-          function initMap() {
-            var merchmart = {lat: 41.8885, lng: -87.6354};
-            var map = new google.maps.Map(document.getElementById('map'), {
-              zoom: 10,
-              center: merchmart,
-              streetViewControl: false          
-            });
-            map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+          // function initMap() {
+          //   var merchmart = {lat: 41.8885, lng: -87.6354};
+          //   var map = new google.maps.Map(document.getElementById('map'), {
+          //     zoom: 10,
+          //     center: merchmart,
+          //     streetViewControl: false          
+          //   });
+          //   map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 
-            $.get('/', function(data) {
-              for (i = 0; i < data.length; i++) {
-                data_hash = {};
-                data_hash.lat = parseFloat(data[i].lat);
-                data_hash.lng = parseFloat(data[i].lng);
+          //   $.get('/', function(data) {
+          //     for (i = 0; i < data.length; i++) {
+          //       data_hash = {};
+          //       data_hash.lat = parseFloat(data[i].lat);
+          //       data_hash.lng = parseFloat(data[i].lng);
                             
-                var marker = new google.maps.Marker({
-                  position: data_hash,
-                map: map
-              });
+          //       var marker = new google.maps.Marker({
+          //         position: data_hash,
+          //       map: map
+          //       // optimized: false
+          //     });
 
-                var graffitiContent = '<p>ID: <a href="/images/">' + data[i].id + '</a></p>'+
-                                      '<p>Gang: ' + data[i].gang + '</p>'+
-                                      '<p>Surface Location: ' + data[i].surface_location + '</p>'+
-                                      '<p>Location Type: ' + data[i].type_of_surface + '</p>'+
-                                      '<p>Status: ' + data[i].status  + '</p>';
+          //       var graffitiContent = '<p>ID: <a href="/images/">' + data[i].id + '</a></p>'+
+          //                             '<p>Gang: ' + data[i].gang + '</p>'+
+          //                             '<p>Surface Location: ' + data[i].surface_location + '</p>'+
+          //                             '<p>Location Type: ' + data[i].type_of_surface + '</p>'+
+          //                             '<p>Status: ' + data[i].status  + '</p>';
 
-                var infowindow = new google.maps.InfoWindow({
-                    content: graffitiContent
-                  });
+          //       var infowindow = new google.maps.InfoWindow({
+          //           content: graffitiContent
+          //         });
 
-                google.maps.event.addListener(marker, 'click', function() {
-                        infowindow.open(map,this);
+          //       google.maps.event.addListener(marker, 'click', function() {
+          //               infowindow.open(map,this);
 
-                     });
-              }
-            });
-          }
+          //            });
+          //     }
+          //   });
+          // }
          
         </script>
 
