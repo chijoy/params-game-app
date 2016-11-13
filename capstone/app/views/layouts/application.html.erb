@@ -14,7 +14,7 @@
   <body class="modern">
   <header>
     
-    <header style="background-image: url('https://c4.staticflickr.com/6/5731/30314281411_88d65f6da6_o.jpg')">
+    
 
     <nav class="navbar navbar-default">
       <div class="container-fluid">
@@ -47,7 +47,7 @@
             <% else %>
               <li><h4>Sign up to submit graffiti cleanup requests!</h4></li>
             <% end %> 
-            <li> Filter by Created Date: <input type="text" name="daterange" value="10/01/2016 - 10/31/2016" /></li>
+            
             
           </ul>
 
@@ -62,18 +62,68 @@
           <ul class="nav navbar-nav navbar-right">
             
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter by: <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li><a href="/images?sort=status">Status</a></li>
-                <li><a href="/images?sort=assign_to_gang">Gang</a></li>
-                <li><a href="/images?sort=surface_location">Surface Location</a></li>
-                <li><a href="/images?sort=type_of_surface">Surface Type</a></li>
-              </ul>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Filter by Created Date: <input type="text" name="daterange" value="10/01/2016 - 10/31/2016" /></a>
+              
             </li>
           </ul>
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
+
+        <style>
+          html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+          }
+          #map {
+            height: 90%;
+          }
+        </style>
+    <!--   </head>
+      <body> -->
+        <div id="map"></div>    
+        <script>
+
+          function initMap() {
+            var merchmart = {lat: 41.8885, lng: -87.6354};
+            var map = new google.maps.Map(document.getElementById('map'), {
+              zoom: 10,
+              center: merchmart,
+              streetViewControl: false          
+            });
+            map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
+
+            $.get('/', function(data) {
+              for (i = 0; i < data.length; i++) {
+                data_hash = {};
+                data_hash.lat = parseFloat(data[i].lat);
+                data_hash.lng = parseFloat(data[i].lng);
+                            
+                var marker = new google.maps.Marker({
+                  position: data_hash,
+                map: map
+              });
+
+                var graffitiContent = '<p>ID: <a href="/images/">' + data[i].id + '</a></p>'+
+                                      '<p>Gang: ' + data[i].gang + '</p>'+
+                                      '<p>Surface Location: ' + data[i].surface_location + '</p>'+
+                                      '<p>Location Type: ' + data[i].type_of_surface + '</p>'+
+                                      '<p>Status: ' + data[i].status  + '</p>';
+
+                var infowindow = new google.maps.InfoWindow({
+                    content: graffitiContent
+                  });
+
+                google.maps.event.addListener(marker, 'click', function() {
+                        infowindow.open(map,this);
+
+                     });
+              }
+            });
+          }
+         
+        </script>
 
   </header>
  
