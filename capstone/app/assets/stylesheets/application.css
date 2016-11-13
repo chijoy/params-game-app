@@ -13,7 +13,7 @@
 
  *= require_tree .
  *= require_self
- *= require css/vitality-blue
+ *= require vitality-blue
  *= require daterangepicker
  *= require bootstrap-datepicker
 
