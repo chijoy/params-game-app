@@ -3,17 +3,9 @@ class ImagesController < ApplicationController
 
   def index
     @images = Image.all
-    sort_attribute = params[:sort]
-    sort_order = params[:sort_order]
     search_term = params[:search_term]
     start_date = params[:start]
     end_date = params[:end]
-
-    if sort_attribute && sort_order
-      @images = @images.order(sort_attribute => sort_order)
-    elsif sort_attribute
-      @images = @images.order(sort_attribute)
-    end
 
     if search_term
       fuzzy_search_term = "%#{search_term}%"
@@ -31,13 +23,13 @@ class ImagesController < ApplicationController
     if request.xhr?        
       @images = @images.map do |image| 
           {lat: image.latitude, 
-            lng: image.longitude,
-            id: image.id,
-            gang: image.assign_to_gang, 
-            status: image.status,
-            surface_location: image.surface_location,
-            type_of_surface: image.type_of_surface
-            }
+          lng: image.longitude,
+          id: image.id,
+          gang: image.assign_to_gang, 
+          status: image.status,
+          surface_location: image.surface_location,
+          type_of_surface: image.type_of_surface
+          }
 
         end
       render json: @images
