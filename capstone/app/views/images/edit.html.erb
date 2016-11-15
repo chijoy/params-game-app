@@ -1,3 +1,5 @@
+
+
 <h1>Manage the Graffiti Image Submission</h1>
 
 <%= form_tag "/images/#{@image.id}", method: :patch do %>  
@@ -128,6 +130,6 @@
   <br>
   <% end %>
   <div>
-    <%= submit_tag "Update the Info" %>
+    <%= submit_tag "Update the Info", class: "btn btn-danger" %>
   </div>
 <% end %>
