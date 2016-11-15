@@ -91,9 +91,9 @@
     });
     map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 
+    console.log(document.URL);
 
-
-    $.get('/', function(data) {
+    $.get(document.URL, function(data) {
       for (i = 0; i < data.length; i++) {
         data_hash = {};
         data_hash.lat = parseFloat(data[i].lat);
