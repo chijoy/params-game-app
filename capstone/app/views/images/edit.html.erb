@@ -3,16 +3,6 @@
 <h1>Manage the Graffiti Image Submission</h1>
 
 <%= form_tag "/images/#{@image.id}", method: :patch do %>  
-  <div>
-    <%= label_tag :image, "Describe the graffiti: " %>
-    <%= text_field_tag :image, @image.image %>
-  </div>
-  <br>
-  <div>
-    <%= label_tag :location, "Where's the graffiti located? " %>
-    <%= text_field_tag :location, @image.location %>
-  </div>
-  <br>
   <% if current_user && current_user.admin%>   
   <div>
     <%= label_tag :assign_to_gang, "Assign to a gang " %>
@@ -24,6 +14,7 @@
                                                 "Assyrian Kings",
                                                 "Bishops",
                                                 "Black Disciples",
+                                                "Black P Stones",
                                                 "Conservative Vice Lords",
                                                 "Crips",
                                                 "Familia Stones",
@@ -121,11 +112,6 @@
   <div>
     <%= label_tag :longitude %>
     <%= text_field_tag :longitude, @image.longitude %>
-  </div>
-  <br>
-  <div>
-    <%= label_tag :notes %>
-    <%= text_field_tag :notes, nil, placeholder: "Notes" %>
   </div>
   <br>
   <% end %>
