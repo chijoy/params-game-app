@@ -7,6 +7,6 @@
 <h3>-----------------------------------</h3>
 
 <% if current_user && (@image.user_id == current_user.id) %>
-  <h3>  <%= link_to 'Edit', "/images/#{@image.id}/edit" %>  |  <%= link_to 'Delete', "/images/#{@image.id}", method: :delete %></h3>
+  <h3> <%= link_to 'Edit', "/images/#{@image.id}/edit", style: 'color:#F75850;' %>  |  <%= link_to 'Delete', "/images/#{@image.id}", method: :delete, style: 'color:#F75850;'%></h3>
 <% end %> 
 </div>
