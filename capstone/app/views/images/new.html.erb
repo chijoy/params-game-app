@@ -6,7 +6,7 @@
 <br>
 <%= form_tag "/images", method: :post do %>
   <div>
-    <%= label_tag :assign_to_gang, "Assign to a gang " %>
+    <%= label_tag :assign_to_gang, "Assign to a gang: " %>
     <%= select_tag :assign_to_gang, options_for_select([
                                                 "Please Assign",
                                                 "Adidas Boys",
@@ -95,12 +95,12 @@
   </div>
   <br>
   <div>
-    <%= label_tag :latitude %>
+    <%= label_tag :latitude, "Latitude: " %>
     <%= text_field_tag :latitude %>
   </div>
   <br>
   <div>
-    <%= label_tag :longitude %>
+    <%= label_tag :longitude, "Longitude: " %>
     <%= text_field_tag :longitude %>
   </div>
   <br>

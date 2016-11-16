@@ -1,12 +1,12 @@
 <div id="background-pages">
-<p>Gang Association: <% if @image.assign_to_gang %> <%= @image.assign_to_gang %> <% else %>Not Assigned<% end %></p>
-<p>Type of Surface: <% if @image.type_of_surface %> <%= @image.type_of_surface %> <% else %>Not Assigned <% end %></p>
-<p>Surface Location: <% if @image.surface_location %> <%= @image.surface_location %> <% else %>Not Assigned <% end %></p>
-<p>Status: <% if @image.status %> <%= @image.status %> <% else %>Not Assigned<% end %></p>
+<h3>Gang Association: <% if @image.assign_to_gang %> <%= @image.assign_to_gang %> <% else %>Not Assigned<% end %></h3>
+<h3>Type of Surface: <% if @image.type_of_surface %> <%= @image.type_of_surface %> <% else %>Not Assigned <% end %></h3>
+<h3>Surface Location: <% if @image.surface_location %> <%= @image.surface_location %> <% else %>Not Assigned <% end %></h3>
+<h3>Status: <% if @image.status %> <%= @image.status %> <% else %>Not Assigned<% end %></h3>
   
-<p>-----------------------------------</p>
+<h3>-----------------------------------</h3>
 
 <% if current_user && (@image.user_id == current_user.id) %>
-  <p>  <%= link_to 'Edit', "/images/#{@image.id}/edit" %>  |  <%= link_to 'Delete', "/images/#{@image.id}", method: :delete %></p>
+  <h3>  <%= link_to 'Edit', "/images/#{@image.id}/edit" %>  |  <%= link_to 'Delete', "/images/#{@image.id}", method: :delete %></h3>
 <% end %> 
 </div>
