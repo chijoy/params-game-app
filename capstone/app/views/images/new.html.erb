@@ -1,5 +1,9 @@
-<h1>Submit A New Graffiti Grabber Request</h1>
 
+
+<div id="background-pages">
+
+<h1>Submit A New Graffiti Grabber Request</h1>
+<br>
 <%= form_tag "/images", method: :post do %>
   <div>
     <%= label_tag :assign_to_gang, "Assign to a gang " %>
@@ -34,7 +38,7 @@
                                                 "Party People", 
                                                 "Satan Disciple",
                                                 "Simon City Royals",
-                                                "Spanish Gangster Disciple",
+                                                "Spanish Gangster Disciples",
                                                 "Spanish Lords",
                                                 "Two Two Boys", 
                                                 ], 
@@ -56,7 +60,7 @@
                                                          "Metal",
                                                          "Metal - Painted",                   
                                                          "Metal - Unpainted", 
-                                                         "Other/Unknown Surface", 
+                                                         "Other / Unknown Surface", 
                                                          "Stucco",
                                                          "Tree",
                                                          "Vinyl Siding",                        
@@ -104,3 +108,4 @@
     <%= submit_tag "Submit Graffiti", class: "btn btn-danger" %>
   </div>
 <% end %>
+</div>

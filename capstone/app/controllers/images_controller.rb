@@ -20,7 +20,7 @@ class ImagesController < ApplicationController
       layout = true
     end
 
-    if request.xhr?        
+    if request.xhr? 
       @images = @images.map do |image| 
           {lat: image.latitude, 
           lng: image.longitude,

@@ -91,8 +91,6 @@
     });
     map.setMapTypeId(google.maps.MapTypeId.ROADMAP);
 
-
-
     $.get(document.URL, function(data) {
       for (i = 0; i < data.length; i++) {
         data_hash = {};
@@ -115,9 +113,7 @@
         google.maps.event.addListener(marker, 'click', function () {
                                         infoWindow.setContent(this.content);
                                         infoWindow.open(this.getMap(), this);
-                                    });
-
-        
+                                    });        
       }
     });
   }
@@ -127,5 +123,3 @@
     <script async defer
     src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBRpgQN5D9dI_8AnHd9QKFwMO5qKV1AUmk&callback=initMap">
     </script>
-<!--   </body>
-</html> -->

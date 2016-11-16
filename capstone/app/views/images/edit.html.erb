@@ -1,7 +1,7 @@
-
+<div id="background-pages">
 
 <h1>Manage the Graffiti Image Submission</h1>
-
+<br>
 <%= form_tag "/images/#{@image.id}", method: :patch do %>  
   <% if current_user && current_user.admin%>   
   <div>
@@ -37,7 +37,7 @@
                                                 "Party People", 
                                                 "Satan Disciple",
                                                 "Simon City Royals",
-                                                "Spanish Gangster Disciple",
+                                                "Spanish Gangster Disciples",
                                                 "Spanish Lords",
                                                 "Two Two Boys", 
                                                 ], 
@@ -95,7 +95,7 @@
                                                         "Metal",
                                                         "Metal - Painted",                   
                                                         "Metal - Unpainted", 
-                                                        "Other/Unknown Surface", 
+                                                        "Other / Unknown Surface", 
                                                         "Stucco",
                                                         "Tree",
                                                         "Vinyl Siding",                        
@@ -114,8 +114,13 @@
     <%= text_field_tag :longitude, @image.longitude %>
   </div>
   <br>
+  
+  <p>Created At: <%= @image.pretty_created_at %></p>
+  <p>Updated At: <%= @image.pretty_updated_at %></p>
+  <br>
   <% end %>
   <div>
     <%= submit_tag "Update the Info", class: "btn btn-danger" %>
   </div>
 <% end %>
+</div>
