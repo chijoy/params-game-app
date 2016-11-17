@@ -3,7 +3,9 @@
 <h1>Edit</h1>
 <br>
 <%= form_tag "/images/#{@image.id}", method: :patch do %>  
-  <% if current_user && current_user.admin%>   
+  <% if current_user && current_user.admin%> 
+
+
   <div>
     <%= label_tag :assign_to_gang, "Gang: " %>
     <%= select_tag :assign_to_gang, options_for_select([
