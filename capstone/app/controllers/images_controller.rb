@@ -58,8 +58,7 @@ class ImagesController < ApplicationController
                           graffiti_image: params[:graffiti_image],
                           street_address: params[:street_address],
                           city: params[:city],
-                          state: params[:state],
-                          full_address: params[:full_address]
+                          state: params[:state]
                           )
 
     redirect_to '/'
