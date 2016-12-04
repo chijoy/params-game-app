@@ -10,4 +10,8 @@ class Image < ApplicationRecord
   def pretty_updated_at
     updated_at.strftime("%m/%d/%Y")
   end
+
+  def full_address
+    "#{street_address} #{city} #{state}"
+  end
 end
