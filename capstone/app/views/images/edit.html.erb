@@ -116,6 +116,24 @@
     <%= text_field_tag :longitude, @image.longitude %>
   </div>
   <br>
+
+  <div>
+    <%= label_tag :street_address %>
+    <%= text_field_tag :street_address, @image.street_address %>
+  </div>
+  <br>
+
+  <div>
+    <%= label_tag :city %>
+    <%= text_field_tag :city, @image.city %>
+  </div>
+  <br>
+
+  <div>
+    <%= label_tag :state %>
+    <%= text_field_tag :state, @image.state %>
+  </div>
+  <br>
   
   <p>Created At: <%= @image.pretty_created_at %></p>
   <p>Updated At: <%= @image.pretty_updated_at %></p>

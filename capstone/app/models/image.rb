@@ -2,6 +2,8 @@ class Image < ApplicationRecord
   belongs_to :user
   has_many :image_gangs
   has_many :gangs, through: :image_gangs
+  geocoded_by :full_address
+  after_validation :geocode
 
   def pretty_created_at
     created_at.strftime("%m/%d/%Y")
