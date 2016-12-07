@@ -9,7 +9,7 @@ class ImagesController < ApplicationController
 
     if search_term
       fuzzy_search_term = "%#{search_term}%"
-      @images = @images.where("status ILIKE ? OR assign_to_gang ILIKE ?", fuzzy_search_term, fuzzy_search_term)
+      @images = @images.where("status ILIKE ? OR assign_to_gang ILIKE ? OR street_address ILIKE ? OR city ILIKE ?", fuzzy_search_term, fuzzy_search_term, fuzzy_search_term, fuzzy_search_term)
     end
 
     if start_date && end_date
@@ -53,8 +53,6 @@ class ImagesController < ApplicationController
                           assign_to_gang: params[:assign_to_gang],
                           type_of_surface: params[:type_of_surface],
                           surface_location: params[:surface_location],
-                          latitude: params[:latitude],
-                          longitude: params[:longitude],
                           graffiti_image: params[:graffiti_image],
                           street_address: params[:street_address],
                           city: params[:city],
@@ -83,12 +81,9 @@ class ImagesController < ApplicationController
                   assign_to_gang: params[:assign_to_gang],
                   type_of_surface: params[:type_of_surface],
                   surface_location: params[:surface_location],
-                  latitude: params[:latitude],
-                  longitude: params[:longitude],
                   street_address: params[:street_address],
                   city: params[:city],
-                  state: params[:state],
-                  full_address: params[:full_address]
+                  state: params[:state]
                   )
 
     redirect_to "/images/#{@image.id}"
