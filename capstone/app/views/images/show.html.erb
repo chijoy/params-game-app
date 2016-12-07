@@ -6,7 +6,9 @@
 <h3>Street Address: <% if @image.street_address %> <%= @image.street_address %> <% else %>Not Assigned<% end %></h3>
 <h3>City: <% if @image.city %> <%= @image.city %> <% else %>Not Assigned<% end %></h3>
 <h3>State: <% if @image.state %> <%= @image.state %> <% else %>Not Assigned<% end %></h3>
-  
+<h3>latitude: <% if @image.latitude %> <%= @image.latitude %> <% else %>Not Assigned<% end %></h3>
+<h3>longitude: <% if @image.longitude %> <%= @image.longitude %> <% else %>Not Assigned<% end %></h3>
+
 <h3>-----------------------------------</h3>
 
 <% if current_user && (@image.user_id == current_user.id) %>
